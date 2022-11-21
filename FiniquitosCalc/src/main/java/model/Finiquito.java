@@ -22,11 +22,12 @@ public class Finiquito {
     private int indeminizacionAniosServicio;
     private int indemnizacionVacaciones;
     private int idUsuario;
+    private String nombreEmpresa;
 
     public Finiquito() {
     }
 
-    public Finiquito(int idFiniquito, Date fechaInicioTrabajo, Date fechaFinTrabajo, int mesesTrabajadosTotal, Date fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, int feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int idUsuario) {
+    public Finiquito(int idFiniquito, Date fechaInicioTrabajo, Date fechaFinTrabajo, int mesesTrabajadosTotal, Date fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, int feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int idUsuario, String nombreEmpresa) {
         this.idFiniquito = idFiniquito;
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
@@ -38,6 +39,7 @@ public class Finiquito {
         this.indeminizacionAniosServicio = indeminizacionAniosServicio;
         this.indemnizacionVacaciones = indemnizacionVacaciones;
         this.idUsuario = idUsuario;
+        this.nombreEmpresa = nombreEmpresa;
     }
 
     public int getIdFiniquito() {
@@ -128,11 +130,21 @@ public class Finiquito {
         this.idUsuario = idUsuario;
     }
 
-    @Override
-    public String toString() {
-        return "Finiquito{" + "idFiniquito=" + idFiniquito + ", fechaInicioTrabajo=" + fechaInicioTrabajo + ", fechaFinTrabajo=" + fechaFinTrabajo + ", mesesTrabajadosTotal=" + mesesTrabajadosTotal + ", fechaPagoFiniquito=" + fechaPagoFiniquito + ", salarioIndemnizacion=" + salarioIndemnizacion + ", salarioVacaciones=" + salarioVacaciones + ", feriadoLegalHabil=" + feriadoLegalHabil + ", indeminizacionAniosServicio=" + indeminizacionAniosServicio + ", indemnizacionVacaciones=" + indemnizacionVacaciones + ", idUsuario=" + idUsuario + '}';
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
     }
 
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+    }
+
+    @Override
+    public String toString() {
+        return "Finiquito{" + "idFiniquito=" + idFiniquito + ", fechaInicioTrabajo=" + fechaInicioTrabajo + ", fechaFinTrabajo=" + fechaFinTrabajo + ", mesesTrabajadosTotal=" + mesesTrabajadosTotal + ", fechaPagoFiniquito=" + fechaPagoFiniquito + ", salarioIndemnizacion=" + salarioIndemnizacion + ", salarioVacaciones=" + salarioVacaciones + ", feriadoLegalHabil=" + feriadoLegalHabil + ", indeminizacionAniosServicio=" + indeminizacionAniosServicio + ", indemnizacionVacaciones=" + indemnizacionVacaciones + ", idUsuario=" + idUsuario + ", nombreEmpresa=" + nombreEmpresa + '}';
+    }
+
+    
+    
 
  
     

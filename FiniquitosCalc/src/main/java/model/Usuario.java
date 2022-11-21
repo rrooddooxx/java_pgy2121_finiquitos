@@ -12,6 +12,7 @@ public class Usuario {
     private int idUsuario;
     private String email;
     private String password;
+    
 
     public Usuario() {
     }

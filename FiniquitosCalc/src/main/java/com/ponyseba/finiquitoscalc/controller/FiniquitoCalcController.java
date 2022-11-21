@@ -20,6 +20,7 @@ import model.Finiquito;
 public class FiniquitoCalcController {
     
 
+    // todo: un usuario admin sólo debe ver los finiquitos creados por el mismo usuario admin.
     public List<Finiquito> listarFiniquitos(){
         List<Finiquito> listaFiniquitos = new ArrayList<>();
         try{
@@ -27,7 +28,7 @@ public class FiniquitoCalcController {
             MySqlConnector connector = new MySqlConnector();
             Connection bdconnect = connector.createConnection();
 
-            String query = "SELECT * FROM Finiquito";
+            String query = "SELECT f.id_finiquito, f.fecha_ini, f.fecha_fin, f.meses_trabajados_total, f.fecha_pago_finiquito, f.monto_salario_indemnizacion, f.monto_salario_vacaciones, f.dias_feriado_legal, f.indem_anios_servicio, f.indem_vacaciones, f.id_usuario, e.nombre  FROM Finiquito f JOIN Empresa e ON f.id_empresa=e.id_empresa";
 
             PreparedStatement stmt = bdconnect.prepareStatement(query);
 
@@ -44,11 +45,16 @@ public class FiniquitoCalcController {
                 finiquito.setFeriadoLegalHabil(rs.getInt("dias_feriado_legal"));
                 finiquito.setIndeminizacionAniosServicio(rs.getInt("indem_anios_servicio"));
                 finiquito.setIndemnizacionVacaciones(rs.getInt("indem_vacaciones"));
+                finiquito.setNombreEmpresa(rs.getString("nombre"));
                 listaFiniquitos.add(finiquito);
             }
 
             stmt.close();
             bdconnect.close();
+            
+            if(listaFiniquitos.size() == 0) {
+                System.out.println("Lista finiquitos no retornó registros");
+            }
 
         } catch(SQLException e){
             System.out.println("Error en ejecución de query Listar Finiquitos");
@@ -58,7 +64,8 @@ public class FiniquitoCalcController {
         return listaFiniquitos;
     }
     
-    public List<Finiquito> listarFiniquitosPorIdUsuario(int userId) {
+    
+    public List<Finiquito> listarFiniquitosPorIdUsuario(int rutTrabajador) {
         List<Finiquito> listaFiniquitosPorId = new ArrayList<>();
         try{
 
