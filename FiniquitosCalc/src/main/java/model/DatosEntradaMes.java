@@ -10,12 +10,12 @@ package model;
  */
 public class DatosEntradaMes {
     private int sueldoBase, gratificacion, colacion, movilizacion, bonoImponible, chequeRestaurant, 
-            desgasteHerramientas, viaticos, semanaCorrida, comision, diasTomadosVacaciones = 0;
+            desgasteHerramientas, viaticos, semanaCorrida, comision = 0;
 
     public DatosEntradaMes() {
     }
 
-    public DatosEntradaMes(int sueldoBase, int gratificacion, int colacion, int movilizacion, int bonoImponible, int chequeRestaurant, int desgasteHerramientas) {
+    public DatosEntradaMes(int sueldoBase, int gratificacion, int colacion, int movilizacion, int bonoImponible, int chequeRestaurant, int desgasteHerramientas, int viaticos, int semanaCorrida) {
         this.sueldoBase = sueldoBase;
         this.gratificacion = gratificacion;
         this.colacion = colacion;
@@ -23,7 +23,11 @@ public class DatosEntradaMes {
         this.bonoImponible = bonoImponible;
         this.chequeRestaurant = chequeRestaurant;
         this.desgasteHerramientas = desgasteHerramientas;
+        this.viaticos = viaticos;
+        this.semanaCorrida = semanaCorrida;
     }
+
+    
 
     public int getSueldoBase() {
         return sueldoBase;
@@ -87,6 +91,30 @@ public class DatosEntradaMes {
 
     public void setViaticos(int viaticos) {
         this.viaticos = viaticos;
+    }
+
+    public int getSemanaCorrida() {
+        return semanaCorrida;
+    }
+
+    public void setSemanaCorrida(int semanaCorrida) {
+        this.semanaCorrida = semanaCorrida;
+    }
+
+    public int getComision() {
+        return comision;
+    }
+
+    public void setComision(int comision) {
+        this.comision = comision;
+    }
+
+    
+    
+
+    @Override
+    public String toString() {
+        return "DatosEntradaMes{" + "sueldoBase=" + sueldoBase + ", gratificacion=" + gratificacion + ", colacion=" + colacion + ", movilizacion=" + movilizacion + ", bonoImponible=" + bonoImponible + ", chequeRestaurant=" + chequeRestaurant + ", desgasteHerramientas=" + desgasteHerramientas + ", viaticos=" + viaticos + ", semanaCorrida=" + semanaCorrida + ", comision=" + comision + '}';
     }
     
     
