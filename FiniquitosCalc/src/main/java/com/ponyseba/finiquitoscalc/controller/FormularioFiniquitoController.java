@@ -86,10 +86,18 @@ public class FormularioFiniquitoController {
         int diasTrabajados = (int)(diff/1000/60/60/24);
         int aniosServicio = Math.round(diasTrabajados/365);
         
-        int indemnizacionAniosServicio = aniosServicio * this.calcIndemnizacionAniosServicio(datos);
+        int indemnizacionAniosServicio = aniosServicio * this.calcSalarioIndemnizacion(datos);
         
         return indemnizacionAniosServicio;
         
+    }
+    
+    public int calcTotalIndemnizacion(FormularioFiniquito datos){
+        
+        /*Validar el preaviso*/
+        int totalIndemnizacion = this.calcIndemnizacionAniosServicio(datos) + this.calcIndemnizacionVacaciones(datos);
+        
+        return totalIndemnizacion;
     }
     
 }
