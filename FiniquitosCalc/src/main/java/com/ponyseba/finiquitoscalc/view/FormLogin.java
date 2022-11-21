@@ -5,6 +5,7 @@
 package com.ponyseba.finiquitoscalc.view;
 
 import com.ponyseba.finiquitoscalc.controller.SesionController;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import model.SesionUsuario;
 
@@ -19,6 +20,7 @@ public class FormLogin extends javax.swing.JFrame {
      */
     public FormLogin() {
         initComponents();
+        this.setTitle("Sistema de cálculo de finiquitos");
     }
 
     /**
@@ -59,6 +61,11 @@ public class FormLogin extends javax.swing.JFrame {
         jLabel_emailUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jLabel_emailUsuarioActionPerformed(evt);
+            }
+        });
+        jLabel_emailUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jLabel_emailUsuarioKeyTyped(evt);
             }
         });
 
@@ -175,7 +182,9 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void jbtn_irCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_irCrearCuentaActionPerformed
         FormCrearCuenta fcc = new FormCrearCuenta();
-        fcc.setVisible(true);// TODO add your handling code here:
+        fcc.setVisible(true);
+        dispose();
+// TODO add your handling code here:
     }//GEN-LAST:event_jbtn_irCrearCuentaActionPerformed
 
     private void jBtn_ingresarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_ingresarSesionActionPerformed
@@ -187,10 +196,15 @@ public class FormLogin extends javax.swing.JFrame {
         SesionUsuario sesionUsuario = new SesionUsuario();
         
         FormFormularioFiniquito formFormularioFiniquito = new FormFormularioFiniquito();
-        
         SesionController sesionController = new SesionController();
+       
+        Pattern regexPattern = Pattern.compile("\\b[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}\\b");
         
-        if(emailUsuario.trim().length() > 0 && passwordUsuario.length > 0){
+        if(!regexPattern.matcher(emailUsuario).matches()){
+            this.jLabel_errorMessage.setText("formato email inválido, ejemplo: usuario@mail.com");
+        } else {
+            this.jLabel_errorMessage.setText("");
+            if(emailUsuario.trim().length() > 0 && passwordUsuario.length > 0){
             SesionUsuario usuarioValidar = sesionController.validarUsuario(emailUsuario, passwordUsuario);
             sesionUsuario.setSesionValida(usuarioValidar.isSesionValida());
             sesionUsuario.setMensajeError(usuarioValidar.getMensajeError());
@@ -209,10 +223,20 @@ public class FormLogin extends javax.swing.JFrame {
             formFormularioFiniquito.setAlwaysOnTop(true);
             this.setVisible(false);
         }
+            
+        }
+        
+        
         
         
         
     }//GEN-LAST:event_jBtn_ingresarSesionActionPerformed
+
+    private void jLabel_emailUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel_emailUsuarioKeyTyped
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_jLabel_emailUsuarioKeyTyped
 
     /**
      * @param args the command line arguments

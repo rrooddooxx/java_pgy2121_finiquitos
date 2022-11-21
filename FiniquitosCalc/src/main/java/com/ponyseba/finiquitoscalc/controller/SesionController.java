@@ -85,7 +85,7 @@ public class SesionController {
                     sesionUsuario.setUsuarioLogueado(usuarioLogueado);
                 } else {
                     sesionUsuario.setSesionValida(false);
-                    sesionUsuario.setMensajeError("Password Incorrecta!");
+                    sesionUsuario.setMensajeError("Credenciales Incorrectas!");
                     sesionUsuario.setUsuarioLogueado(null);
                 }                
             }
