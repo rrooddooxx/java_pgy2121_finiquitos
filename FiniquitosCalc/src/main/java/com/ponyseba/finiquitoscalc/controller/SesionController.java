@@ -8,6 +8,8 @@ import com.ponyseba.finiquitoscalc.db.MySqlConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import model.SesionUsuario;
 import model.Usuario;
 
 /**
@@ -36,45 +38,71 @@ public class SesionController {
         return false;
     }
     
-    public static int obtenerUsuario(){
-        
-    }
     
-    private boolean validarUsuario (String email, String password){
+    public SesionUsuario validarUsuario (String email, char [] passwordArr){
         // se llama a la bbdd para validar el usuario...
         // retorna true ó false
         
+        String password = String.valueOf(passwordArr);
+        
+        System.out.println(password);
         boolean usuarioValido = false;
+        SesionUsuario sesionUsuario = new SesionUsuario();
+        Usuario usuarioLogueado = new Usuario();
         
         try {
             
             MySqlConnector connector = new MySqlConnector();
             Connection bdconnect = connector.createConnection();
 
-            String query = "SELECT id_usuario, email, password FROM Usuario WHERE email=?";
+            String queryUsuario = "SELECT id_usuario, email, password FROM Usuario WHERE email=?";
+            String queryPassword = "SELECT id_usuario, email, password FROM Usuario WHERE email=? AND password=?";
         
-            PreparedStatement stmt = bdconnect.prepareStatement(query);
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
+            PreparedStatement stmtUsuario = bdconnect.prepareStatement(queryUsuario);
+            stmtUsuario.setString(1, email);
+            ResultSet rsUsuario = stmtUsuario.executeQuery();
             
-            rs.next() ? "d" : "f";
+            PreparedStatement stmtUsuarioPassword = bdconnect.prepareStatement(queryPassword);
+            stmtUsuarioPassword.setString(1, email);
+            stmtUsuarioPassword.setString(2, password);
+            ResultSet rsUsuarioPassword;
             
-            if () {
+            if (!rsUsuario.next()) {
+                System.out.println("no encontró usuario");
+              sesionUsuario.setSesionValida(false);
+              sesionUsuario.setMensajeError("Usuario no existe");
+              sesionUsuario.setUsuarioLogueado(null);
+            } else {
                 
+               System.out.println("encontró usuario!");
+                rsUsuarioPassword = stmtUsuarioPassword.executeQuery();
+                if(rsUsuarioPassword.next()) {
+                    sesionUsuario.setSesionValida(true);
+                    sesionUsuario.setMensajeError("");
+                    usuarioLogueado.setIdUsuario(rsUsuarioPassword.getInt("id_usuario"));
+                    usuarioLogueado.setEmail(rsUsuarioPassword.getString("email"));
+                    usuarioLogueado.setPassword(rsUsuarioPassword.getString("password"));
+                    sesionUsuario.setUsuarioLogueado(usuarioLogueado);
+                } else {
+                    sesionUsuario.setSesionValida(false);
+                    sesionUsuario.setMensajeError("Credenciales Incorrectas!");
+                    sesionUsuario.setUsuarioLogueado(null);
+                }                
             }
+ 
+            stmtUsuario.close();
+            stmtUsuarioPassword.close();
+            bdconnect.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("Error en el inicio de sesión de usuario : " + e.getMessage());
+            return new SesionUsuario(false,"Error inicio de sesión", null);
         }
         
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+       return sesionUsuario;
     }
     
+    
+
     
 }
