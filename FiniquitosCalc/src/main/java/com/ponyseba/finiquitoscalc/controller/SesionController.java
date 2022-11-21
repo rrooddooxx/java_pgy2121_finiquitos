@@ -8,6 +8,7 @@ import com.ponyseba.finiquitoscalc.db.MySqlConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import model.SesionUsuario;
 import model.Usuario;
 
@@ -44,6 +45,7 @@ public class SesionController {
         
         String password = String.valueOf(passwordArr);
         
+        System.out.println(password);
         boolean usuarioValido = false;
         SesionUsuario sesionUsuario = new SesionUsuario();
         Usuario usuarioLogueado = new Usuario();
@@ -66,12 +68,13 @@ public class SesionController {
             ResultSet rsUsuarioPassword;
             
             if (!rsUsuario.next()) {
+                System.out.println("no encontró usuario");
               sesionUsuario.setSesionValida(false);
               sesionUsuario.setMensajeError("Usuario no existe");
               sesionUsuario.setUsuarioLogueado(null);
-            } 
-            
-            if (rsUsuario.next()) {
+            } else {
+                
+               System.out.println("encontró usuario!");
                 rsUsuarioPassword = stmtUsuarioPassword.executeQuery();
                 if(rsUsuarioPassword.next()) {
                     sesionUsuario.setSesionValida(true);
@@ -84,16 +87,19 @@ public class SesionController {
                     sesionUsuario.setSesionValida(false);
                     sesionUsuario.setMensajeError("Password Incorrecta!");
                     sesionUsuario.setUsuarioLogueado(null);
-                }
+                }                
             }
+ 
+            stmtUsuario.close();
+            stmtUsuarioPassword.close();
+            bdconnect.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error en el inicio de sesión de usuario : " + e.getMessage());
             return new SesionUsuario(false,"Error inicio de sesión", null);
         }
         
-        return sesionUsuario;
-        
+       return sesionUsuario;
     }
     
     

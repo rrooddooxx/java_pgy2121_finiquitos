@@ -12,12 +12,12 @@ import model.SesionUsuario;
  *
  * @author jgval
  */
-public class Form_Login extends javax.swing.JFrame {
+public class FormLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form Form_Login
      */
-    public Form_Login() {
+    public FormLogin() {
         initComponents();
     }
 
@@ -41,7 +41,7 @@ public class Form_Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jbtn_irCrearCuenta = new javax.swing.JButton();
         jBtn_ingresarSesion = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel_errorMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,6 +81,7 @@ public class Form_Login extends javax.swing.JFrame {
             }
         });
 
+        jBtn_ingresarSesion.setBackground(new java.awt.Color(204, 204, 204));
         jBtn_ingresarSesion.setText("Ingresar");
         jBtn_ingresarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,8 +89,10 @@ public class Form_Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText(" ");
+        jLabel_errorMessage.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        jLabel_errorMessage.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel_errorMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_errorMessage.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,32 +100,28 @@ public class Form_Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel_passwordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(367, 367, 367)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(367, 367, 367)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(jLabel1))
-                                    .addComponent(jLabel2)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(369, 369, 369)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jbtn_irCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(375, 375, 375)
-                        .addComponent(jLabel_emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(367, 367, 367)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(367, 367, 367)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel1))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel_emailUsuario)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(369, 369, 369)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbtn_irCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                            .addComponent(jLabel_errorMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_passwordUsuario)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(464, 464, 464)
                         .addComponent(jBtn_ingresarSesion)))
@@ -146,7 +145,7 @@ public class Form_Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jLabel5)
+                .addComponent(jLabel_errorMessage)
                 .addGap(26, 26, 26)
                 .addComponent(jBtn_ingresarSesion)
                 .addGap(57, 57, 57)
@@ -175,7 +174,7 @@ public class Form_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_emailUsuarioActionPerformed
 
     private void jbtn_irCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_irCrearCuentaActionPerformed
-        Form_CrearCuenta fcc = new Form_CrearCuenta();
+        FormCrearCuenta fcc = new FormCrearCuenta();
         fcc.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jbtn_irCrearCuentaActionPerformed
 
@@ -185,15 +184,33 @@ public class Form_Login extends javax.swing.JFrame {
         boolean loginValido = false;
         String emailUsuario = this.jLabel_emailUsuario.getText();
         char[] passwordUsuario = this.jLabel_passwordUsuario.getPassword();
-        SesionUsuario sesionUsuario;
+        SesionUsuario sesionUsuario = new SesionUsuario();
+        
+        FormFormularioFiniquito formFormularioFiniquito = new FormFormularioFiniquito();
         
         SesionController sesionController = new SesionController();
         
         if(emailUsuario.trim().length() > 0 && passwordUsuario.length > 0){
-            sesionUsuario = sesionController.validarUsuario(emailUsuario, passwordUsuario);
+            SesionUsuario usuarioValidar = sesionController.validarUsuario(emailUsuario, passwordUsuario);
+            sesionUsuario.setSesionValida(usuarioValidar.isSesionValida());
+            sesionUsuario.setMensajeError(usuarioValidar.getMensajeError());
+            sesionUsuario.setUsuarioLogueado(usuarioValidar.getUsuarioLogueado());
+            System.out.println(sesionUsuario.toString());
+            
+            if(sesionUsuario.getMensajeError().trim().length() > 0){
+                this.jLabel_errorMessage.setText(sesionUsuario.getMensajeError());
+            }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Datos incorrectos!");
         }
+        
+        if(sesionUsuario.isSesionValida()) {
+            formFormularioFiniquito.setVisible(true);
+            formFormularioFiniquito.setAlwaysOnTop(true);
+            this.setVisible(false);
+        }
+        
+        
         
     }//GEN-LAST:event_jBtn_ingresarSesionActionPerformed
 
@@ -214,14 +231,22 @@ public class Form_Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Form_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Form_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Form_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Form_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -235,7 +260,7 @@ public class Form_Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Form_Login().setVisible(true);
+                new FormLogin().setVisible(true);
             }
         });
     }
@@ -246,8 +271,8 @@ public class Form_Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jLabel_emailUsuario;
+    private javax.swing.JLabel jLabel_errorMessage;
     private javax.swing.JPasswordField jLabel_passwordUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
