@@ -11,7 +11,7 @@ _Duoc UC, Sede Viña Del Mar._
 ## 📦 Dependencias
 ```
 Java 11 (OpenJDK)
-Ant
+Maven
 ```
 ## 🚀 Ejecución
 ```
