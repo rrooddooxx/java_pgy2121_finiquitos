@@ -37,13 +37,12 @@ public class SesionController {
         return false;
     }
     
-    public static int obtenerUsuario(){
-        
-    }
     
-    private SesionUsuario validarUsuario (String email, String password){
+    public SesionUsuario validarUsuario (String email, char [] passwordArr){
         // se llama a la bbdd para validar el usuario...
         // retorna true ó false
+        
+        String password = String.valueOf(passwordArr);
         
         boolean usuarioValido = false;
         SesionUsuario sesionUsuario = new SesionUsuario();
@@ -99,13 +98,5 @@ public class SesionController {
     
     
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-    
     
 }

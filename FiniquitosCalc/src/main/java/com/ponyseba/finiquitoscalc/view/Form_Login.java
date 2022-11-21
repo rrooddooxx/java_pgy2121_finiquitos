@@ -4,6 +4,10 @@
  */
 package com.ponyseba.finiquitoscalc.view;
 
+import com.ponyseba.finiquitoscalc.controller.SesionController;
+import javax.swing.JOptionPane;
+import model.SesionUsuario;
+
 /**
  *
  * @author jgval
@@ -29,14 +33,15 @@ public class Form_Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jlbl_email = new javax.swing.JTextField();
+        jLabel_emailUsuario = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jlbl_password = new javax.swing.JPasswordField();
-        jbtn_login = new javax.swing.JButton();
+        jLabel_passwordUsuario = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jbtn_irCrearCuenta = new javax.swing.JButton();
+        jBtn_ingresarSesion = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,31 +53,20 @@ public class Form_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel2.setText("Email");
 
-        jlbl_email.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jlbl_email.setActionCommand("<Not Set>");
-        jlbl_email.setBorder(null);
-        jlbl_email.addActionListener(new java.awt.event.ActionListener() {
+        jLabel_emailUsuario.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel_emailUsuario.setActionCommand("<Not Set>");
+        jLabel_emailUsuario.setBorder(null);
+        jLabel_emailUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jlbl_emailActionPerformed(evt);
+                jLabel_emailUsuarioActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel3.setText("Contraseña");
 
-        jlbl_password.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jlbl_password.setBorder(null);
-
-        jbtn_login.setBackground(new java.awt.Color(51, 51, 51));
-        jbtn_login.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jbtn_login.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_login.setText("Iniciar sesión");
-        jbtn_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtn_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_loginActionPerformed(evt);
-            }
-        });
+        jLabel_passwordUsuario.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel_passwordUsuario.setBorder(null);
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel4.setText("¿No tienes cuenta? ");
@@ -87,6 +81,16 @@ public class Form_Login extends javax.swing.JFrame {
             }
         });
 
+        jBtn_ingresarSesion.setText("Ingresar");
+        jBtn_ingresarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_ingresarSesionActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText(" ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,7 +98,7 @@ public class Form_Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jlbl_password, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_passwordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(367, 367, 367)
@@ -114,15 +118,15 @@ public class Form_Login extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jbtn_irCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(375, 375, 375)
-                        .addComponent(jlbl_email, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel_emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(464, 464, 464)
+                        .addComponent(jBtn_ingresarSesion)))
                 .addContainerGap(372, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(441, 441, 441))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,18 +136,20 @@ public class Form_Login extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlbl_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlbl_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_passwordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel5)
+                .addGap(26, 26, 26)
+                .addComponent(jBtn_ingresarSesion)
+                .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jbtn_irCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -164,18 +170,32 @@ public class Form_Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jlbl_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlbl_emailActionPerformed
+    private void jLabel_emailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLabel_emailUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jlbl_emailActionPerformed
-
-    private void jbtn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_loginActionPerformed
+    }//GEN-LAST:event_jLabel_emailUsuarioActionPerformed
 
     private void jbtn_irCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_irCrearCuentaActionPerformed
         Form_CrearCuenta fcc = new Form_CrearCuenta();
         fcc.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jbtn_irCrearCuentaActionPerformed
+
+    private void jBtn_ingresarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_ingresarSesionActionPerformed
+        // TODO add your handling code here:
+        
+        boolean loginValido = false;
+        String emailUsuario = this.jLabel_emailUsuario.getText();
+        char[] passwordUsuario = this.jLabel_passwordUsuario.getPassword();
+        SesionUsuario sesionUsuario;
+        
+        SesionController sesionController = new SesionController();
+        
+        if(emailUsuario.trim().length() > 0 && passwordUsuario.length > 0){
+            sesionUsuario = sesionController.validarUsuario(emailUsuario, passwordUsuario);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Datos incorrectos!");
+        }
+        
+    }//GEN-LAST:event_jBtn_ingresarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,16 +241,17 @@ public class Form_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtn_ingresarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jLabel_emailUsuario;
+    private javax.swing.JPasswordField jLabel_passwordUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbtn_irCrearCuenta;
-    private javax.swing.JButton jbtn_login;
-    private javax.swing.JTextField jlbl_email;
-    private javax.swing.JPasswordField jlbl_password;
     // End of variables declaration//GEN-END:variables
 }
