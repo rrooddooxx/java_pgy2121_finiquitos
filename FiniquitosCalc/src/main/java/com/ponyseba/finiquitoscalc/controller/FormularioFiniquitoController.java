@@ -14,36 +14,81 @@ import model.FormularioFiniquito;
  */
 public class FormularioFiniquitoController {
     
-    /*Método que calcula el Salario para Indemnización de un mes. En el caso de los salarios fijos, este será un
-    resultado estable. En el caso de los salarios variables habrá que utilizar este método en los 3 últimos meses
-    de salario del trabajador y tomar un promedio. Los valores que no se toman en cada uno de los casos siempre estarán
-    inicializados como 0, por lo que no habría problema.
-    */
-    public int calcSalarioIndemnizacion(DatosEntradaMes datos){
+    
+    public int calcSalarioIndemnizacion(FormularioFiniquito datos){
         
-        int salarioIndemnizacion = datos.getSueldoBase()+datos.getGratificacion()+datos.getColacion()
-                +datos.getBonoImponible()+datos.getMovilizacion()+datos.getSemanaCorrida()+datos.getComision();
+        int salarioIndemnizacion = 0;
         
-        return salarioIndemnizacion;
+        if(datos.isSalarioFijo()){
+            salarioIndemnizacion = datos.getMesUno().getSueldoBase()+datos.getMesUno().getGratificacion()+
+                    datos.getMesUno().getColacion()+datos.getMesUno().getBonoImponible()+datos.getMesUno().getMovilizacion();
+            
+        }else{
+            int mesUno = datos.getMesUno().getSueldoBase()+datos.getMesUno().getGratificacion()+datos.getMesUno().getColacion()+
+                    datos.getMesUno().getBonoImponible()+datos.getMesUno().getMovilizacion()+datos.getMesUno().getSemanaCorrida()+
+                    datos.getMesUno().getComision();
+            int mesDos = datos.getMesDos().getSueldoBase()+datos.getMesDos().getGratificacion()+datos.getMesDos().getColacion()+
+                    datos.getMesDos().getBonoImponible()+datos.getMesDos().getMovilizacion()+datos.getMesDos().getSemanaCorrida()+
+                    datos.getMesDos().getComision();
+            int mesTres = datos.getMesTres().getSueldoBase()+datos.getMesTres().getGratificacion()+datos.getMesTres().getColacion()+
+                    datos.getMesTres().getBonoImponible()+datos.getMesTres().getMovilizacion()+datos.getMesTres().getSemanaCorrida()+
+                    datos.getMesTres().getComision();
+            
+            salarioIndemnizacion = (mesUno+mesDos+mesTres) / 3;
+        }
+        
+        return salarioIndemnizacion;      
+        
     }
     
-    /*Método que calcula el Salario para Vacaciones de un mes. En el caso de los salarios fijos, este será un
-    resultado estable. En el caso de los salarios variables habrá que utilizar este método en los 3 últimos meses
-    de salario del trabajador y tomar un promedio.
-    */
-    public int calcSalarioVacaciones(DatosEntradaMes datos){
+    public int calcSalarioVacaciones(FormularioFiniquito datos){
         
-        int salarioVacaciones = datos.getSueldoBase()+datos.getGratificacion()+datos.getComision();
+        int salarioVacaciones = 0;
+        
+        if(datos.isSalarioFijo()){
+            salarioVacaciones = datos.getMesUno().getSueldoBase()+datos.getMesUno().getGratificacion();
+            
+        }else{
+            int mesUno = datos.getMesUno().getSueldoBase()+datos.getMesUno().getGratificacion()+
+                    datos.getMesUno().getComision();
+            int mesDos = datos.getMesDos().getSueldoBase()+datos.getMesDos().getGratificacion()+
+                    datos.getMesDos().getComision();
+            int mesTres = datos.getMesTres().getSueldoBase()+datos.getMesTres().getGratificacion()+
+                    datos.getMesTres().getComision();
+            salarioVacaciones = (mesUno+mesDos+mesTres)/3;
+        }
         
         return salarioVacaciones;
+        
     }
     
     public int calcFeriadoLegal(FormularioFiniquito datos){
         
         long diff = datos.getFechaFinTrabajo().getTime() - datos.getFechaInicioTrabajo().getTime();
         int diasTrabajados = (int)(diff/1000/60/60/24);
+        int diasVacacionesCorrespondientes = (diasTrabajados/365)*15;
+        int feriadoLegal = diasVacacionesCorrespondientes - datos.getDiasTomadosVacaciones();
         
-        return diasTrabajados;
+        return feriadoLegal;       
+        
+    }
+    
+    public int calcIndemnizacionVacaciones(FormularioFiniquito datos){
+        
+        int indemnizacionVacaciones = this.calcFeriadoLegal(datos) * this.calcSalarioVacaciones(datos);
+        
+        return indemnizacionVacaciones;
+    }
+    
+    public int calcIndemnizacionAniosServicio(FormularioFiniquito datos){
+        
+        long diff = datos.getFechaFinTrabajo().getTime() - datos.getFechaInicioTrabajo().getTime();
+        int diasTrabajados = (int)(diff/1000/60/60/24);
+        int aniosServicio = Math.round(diasTrabajados/365);
+        
+        int indemnizacionAniosServicio = aniosServicio * this.calcIndemnizacionAniosServicio(datos);
+        
+        return indemnizacionAniosServicio;
         
     }
     

@@ -11,10 +11,12 @@ import java.util.Date;
  * @author jgval
  */
 public class FormularioFiniquito {
+    
     private Date fechaInicioTrabajo;
     private Date fechaFinTrabajo;
     private int artCausalFinContrato;
     private int numArtCausalFinContrato;
+    private boolean salarioFijo;
     private DatosEntradaMes mesUno;
     private DatosEntradaMes mesDos;
     private DatosEntradaMes mesTres;
@@ -96,6 +98,15 @@ public class FormularioFiniquito {
     public void setDiasTomadosVacaciones(int diasTomadosVacaciones) {
         this.diasTomadosVacaciones = diasTomadosVacaciones;
     }
+
+    public boolean isSalarioFijo() {
+        return salarioFijo;
+    }
+
+    public void setSalarioFijo(boolean salarioFijo) {
+        this.salarioFijo = salarioFijo;
+    }
+    
     
     
 
