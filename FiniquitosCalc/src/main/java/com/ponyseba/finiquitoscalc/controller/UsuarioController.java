@@ -52,8 +52,39 @@ public class UsuarioController {
     }
    
     
-    public void crearUsuario() {
-        //
+    public boolean crearUsuario(String email, char [] passwordArr) {
+        
+        boolean usuarioCreado = false;
+        
+        try {
+        MySqlConnector connector = new MySqlConnector();
+        Connection bdconnect = connector.createConnection();
+        
+        String password = String.valueOf(passwordArr);
+        
+        PreparedStatement stmt = bdconnect.prepareStatement("INSERT INTO Usuario (email,password) VALUES (?,?)");
+        stmt.setString(1, email);
+        stmt.setString(2, password);
+        int usuariosCreadosResponse = stmt.executeUpdate();
+        
+        if(usuariosCreadosResponse > 0) {
+            usuarioCreado = true;
+        } else {
+            usuarioCreado = false;
+        }
+                 
+            
+        stmt.close();
+        bdconnect.close();
+        
+      
+        
+        } catch (Exception e) {
+            System.out.println("Problema creando usuario : " + e.getMessage());
+            usuarioCreado = false;
+        }
+        
+        return usuarioCreado;
     }
     
     public void borrarUsuario() {
