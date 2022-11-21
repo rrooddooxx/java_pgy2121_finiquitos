@@ -21,6 +21,7 @@ public class Finiquito {
     private int feriadoLegalHabil;
     private int indeminizacionAniosServicio;
     private int indemnizacionVacaciones;
+    private int totalIndemnizacion;
     private int idUsuario;
     private String nombreEmpresa;
 
