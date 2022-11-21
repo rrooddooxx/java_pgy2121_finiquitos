@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.text.PasswordView;
+import model.DatosEntradaMes;
 import model.Finiquito;
 import model.Usuario;
 
@@ -17,6 +18,9 @@ public class FiniquitosCalc {
 
     public static void main(String[] args) throws SQLException{
         // todo: call methods from controller and test to console
+        
+        DatosEntradaMes datos = new DatosEntradaMes();
+        System.out.println(datos);
         
         UsuarioController usuarioController = new UsuarioController();
         
