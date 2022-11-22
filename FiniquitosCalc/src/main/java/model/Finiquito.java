@@ -5,6 +5,7 @@
 package model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -12,10 +13,10 @@ import java.sql.Date;
  */
 public class Finiquito {
     private int idFiniquito;
-    private Date fechaInicioTrabajo;
-    private Date fechaFinTrabajo;
+    private LocalDate fechaInicioTrabajo;
+    private LocalDate fechaFinTrabajo;
     private int mesesTrabajadosTotal;
-    private Date fechaPagoFiniquito;
+    private LocalDate fechaPagoFiniquito;
     private int salarioIndemnizacion;
     private int salarioVacaciones;
     private int feriadoLegalHabil;
@@ -28,7 +29,7 @@ public class Finiquito {
     public Finiquito() {
     }
 
-    public Finiquito(int idFiniquito, Date fechaInicioTrabajo, Date fechaFinTrabajo, int mesesTrabajadosTotal, Date fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, int feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int idUsuario, String nombreEmpresa) {
+    public Finiquito(int idFiniquito, LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int mesesTrabajadosTotal, LocalDate fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, int feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int idUsuario, String nombreEmpresa) {
         this.idFiniquito = idFiniquito;
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
@@ -51,19 +52,19 @@ public class Finiquito {
         this.idFiniquito = idFiniquito;
     }
 
-    public Date getFechaInicioTrabajo() {
+    public LocalDate getFechaInicioTrabajo() {
         return fechaInicioTrabajo;
     }
 
-    public void setFechaInicioTrabajo(Date fechaInicioTrabajo) {
+    public void setFechaInicioTrabajo(LocalDate fechaInicioTrabajo) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
     }
 
-    public Date getFechaFinTrabajo() {
+    public LocalDate getFechaFinTrabajo() {
         return fechaFinTrabajo;
     }
 
-    public void setFechaFinTrabajo(Date fechaFinTrabajo) {
+    public void setFechaFinTrabajo(LocalDate fechaFinTrabajo) {
         this.fechaFinTrabajo = fechaFinTrabajo;
     }
 
@@ -75,11 +76,11 @@ public class Finiquito {
         this.mesesTrabajadosTotal = mesesTrabajadosTotal;
     }
 
-    public Date getFechaPagoFiniquito() {
+    public LocalDate getFechaPagoFiniquito() {
         return fechaPagoFiniquito;
     }
 
-    public void setFechaPagoFiniquito(Date fechaPagoFiniquito) {
+    public void setFechaPagoFiniquito(LocalDate fechaPagoFiniquito) {
         this.fechaPagoFiniquito = fechaPagoFiniquito;
     }
 

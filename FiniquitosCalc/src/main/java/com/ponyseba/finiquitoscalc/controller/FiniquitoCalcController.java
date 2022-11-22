@@ -11,7 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.ponyseba.finiquitoscalc.db.MySqlConnector;
+import static java.time.temporal.ChronoUnit.DAYS;
+import static java.time.temporal.ChronoUnit.MONTHS;
+import static java.time.temporal.ChronoUnit.YEARS;
+import model.Empresa;
 import model.Finiquito;
+import model.FormularioFiniquito;
 
 /**
  *
@@ -36,10 +41,10 @@ public class FiniquitoCalcController {
        
             while(rs.next()){
                 Finiquito finiquito = new Finiquito();
-                finiquito.setFechaInicioTrabajo(rs.getDate("fecha_ini"));
-                finiquito.setFechaFinTrabajo(rs.getDate("fecha_fin"));
+                finiquito.setFechaInicioTrabajo(rs.getDate("fecha_ini").toLocalDate());
+                finiquito.setFechaFinTrabajo(rs.getDate("fecha_fin").toLocalDate());
                 finiquito.setMesesTrabajadosTotal(rs.getInt("meses_trabajados_total"));
-                finiquito.setFechaPagoFiniquito(rs.getDate("fecha_pago_finiquito"));
+                finiquito.setFechaPagoFiniquito(rs.getDate("fecha_pago_finiquito").toLocalDate());
                 finiquito.setSalarioIndemnizacion(rs.getInt("monto_salario_indemnizacion"));
                 finiquito.setSalarioVacaciones(rs.getInt("monto_salario_vacaciones"));
                 finiquito.setFeriadoLegalHabil(rs.getInt("dias_feriado_legal"));
@@ -65,7 +70,7 @@ public class FiniquitoCalcController {
     }
     
     
-    public List<Finiquito> listarFiniquitosPorIdUsuario(int rutTrabajador) {
+    /*public List<Finiquito> listarFiniquitosPorIdUsuario(int rutTrabajador) {
         List<Finiquito> listaFiniquitosPorId = new ArrayList<>();
         try{
 
@@ -102,7 +107,7 @@ public class FiniquitoCalcController {
         }
 
         return listaFiniquitosPorId;
-        }
+        }*/
     
     
     public void editarFiniquito() {
@@ -133,7 +138,42 @@ public class FiniquitoCalcController {
 
             return true;
         }
+    
+    public String tiempoTrabajado(Finiquito datos){
+        long aniosTrabajados = YEARS.between(datos.getFechaInicioTrabajo(), datos.getFechaFinTrabajo());
+        int aniosTotal = (int)aniosTrabajados;
+        String aniosFrase = "";
+        if(aniosTotal==1){
+            aniosFrase = " año, ";
+        }else{
+            aniosFrase = " años, ";
+        }
+        
+        long mesesTrabajados = MONTHS.between(datos.getFechaInicioTrabajo(),datos.getFechaFinTrabajo());
+        int mesesTotal = (int)mesesTrabajados - ((int)aniosTrabajados*12);
+        String mesesFrase = "";
+        if(mesesTotal==1){
+            mesesFrase = " mes, ";
+        }else{
+            mesesFrase = " meses, ";
+        }
+        
+        long diasTrabajados = DAYS.between(datos.getFechaInicioTrabajo(), datos.getFechaFinTrabajo());
+        int diasTotal = (int)diasTrabajados - (((int)mesesTrabajados*30)+((int)aniosTrabajados*5));
+        String diasFrase = "";
+        if(diasTotal==1){
+            diasFrase = " día";
+        }else{
+            diasFrase = " días";
+        }
+        
+        String fraseFinal = aniosTotal + aniosFrase + mesesTotal + mesesFrase + diasTotal + diasFrase;
+        
+        return fraseFinal;
+        
+    }
 
+    
        
     
 }

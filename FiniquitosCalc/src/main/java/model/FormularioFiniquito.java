@@ -4,7 +4,7 @@
  */
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -12,8 +12,8 @@ import java.util.Date;
  */
 public class FormularioFiniquito {
     
-    private Date fechaInicioTrabajo;
-    private Date fechaFinTrabajo;
+    private LocalDate fechaInicioTrabajo;
+    private LocalDate fechaFinTrabajo;
     private int artCausalFinContrato;
     private int numArtCausalFinContrato;
     private boolean salarioFijo;
@@ -25,7 +25,7 @@ public class FormularioFiniquito {
     public FormularioFiniquito() {
     }
 
-    public FormularioFiniquito(Date fechaInicioTrabajo, Date fechaFinTrabajo, int artCausalFinContrato, int numArtCausalFinContrato, DatosEntradaMes mesUno, DatosEntradaMes mesDos, DatosEntradaMes mesTres) {
+    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int artCausalFinContrato, int numArtCausalFinContrato, DatosEntradaMes mesUno, DatosEntradaMes mesDos, DatosEntradaMes mesTres) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
         this.artCausalFinContrato = artCausalFinContrato;
@@ -35,19 +35,19 @@ public class FormularioFiniquito {
         this.mesTres = mesTres;
     }
 
-    public Date getFechaInicioTrabajo() {
+    public LocalDate getFechaInicioTrabajo() {
         return fechaInicioTrabajo;
     }
 
-    public void setFechaInicioTrabajo(Date fechaInicioTrabajo) {
+    public void setFechaInicioTrabajo(LocalDate fechaInicioTrabajo) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
     }
 
-    public Date getFechaFinTrabajo() {
+    public LocalDate getFechaFinTrabajo() {
         return fechaFinTrabajo;
     }
 
-    public void setFechaFinTrabajo(Date fechaFinTrabajo) {
+    public void setFechaFinTrabajo(LocalDate fechaFinTrabajo) {
         this.fechaFinTrabajo = fechaFinTrabajo;
     }
 
@@ -106,14 +106,15 @@ public class FormularioFiniquito {
     public void setSalarioFijo(boolean salarioFijo) {
         this.salarioFijo = salarioFijo;
     }
+
+    @Override
+    public String toString() {
+        return "FormularioFiniquito{" + "fechaInicioTrabajo=" + fechaInicioTrabajo + ", fechaFinTrabajo=" + fechaFinTrabajo + ", artCausalFinContrato=" + artCausalFinContrato + ", numArtCausalFinContrato=" + numArtCausalFinContrato + ", salarioFijo=" + salarioFijo + ", mesUno=" + mesUno + ", mesDos=" + mesDos + ", mesTres=" + mesTres + ", diasTomadosVacaciones=" + diasTomadosVacaciones + '}';
+    }
     
     
     
 
-    @Override
-    public String toString() {
-        return "FormularioFiniquito{" + "fechaInicioTrabajo=" + fechaInicioTrabajo + ", fechaFinTrabajo=" + fechaFinTrabajo + ", artCausalFinContrato=" + artCausalFinContrato + ", numArtCausalFinContrato=" + numArtCausalFinContrato + ", mesUno=" + mesUno + ", mesDos=" + mesDos + ", mesTres=" + mesTres + '}';
-    }
     
     
     
