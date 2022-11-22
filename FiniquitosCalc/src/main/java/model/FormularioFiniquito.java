@@ -35,6 +35,7 @@ public class FormularioFiniquito {
     public FormularioFiniquito() {
     }
 
+
     public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int diasTomadosVacaciones, String artCausalFinContrato, DatosEntradaMes mesUno, DatosEntradaMes mesDos, DatosEntradaMes mesTres, boolean salarioFijo) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
