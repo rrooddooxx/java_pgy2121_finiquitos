@@ -13,6 +13,7 @@ import java.time.LocalDate;
  */
 public class Finiquito {
     private int idFiniquito;
+    private String nombreTrabajador = "";
     private LocalDate fechaInicioTrabajo;
     private LocalDate fechaFinTrabajo;
     private String mesesTrabajadosTotal;
@@ -29,8 +30,9 @@ public class Finiquito {
     public Finiquito() {
     }
 
-    public Finiquito(int idFiniquito, LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, String mesesTrabajadosTotal, LocalDate fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, double feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int totalIndemnizacion, int idUsuario, String nombreEmpresa) {
+    public Finiquito(int idFiniquito, String nombreTrabajador, LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, String mesesTrabajadosTotal, LocalDate fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, double feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int totalIndemnizacion, int idUsuario, String nombreEmpresa) {
         this.idFiniquito = idFiniquito;
+        this.nombreTrabajador = nombreTrabajador;
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
         this.mesesTrabajadosTotal = mesesTrabajadosTotal;
@@ -148,6 +150,16 @@ public class Finiquito {
     public void setTotalIndemnizacion(int totalIndemnizacion) {
         this.totalIndemnizacion = totalIndemnizacion;
     }
+
+    public String getNombreTrabajador() {
+        return nombreTrabajador;
+    }
+
+    public void setNombreTrabajador(String nombreTrabajador) {
+        this.nombreTrabajador = nombreTrabajador;
+    }
+    
+    
 
     @Override
     public String toString() {

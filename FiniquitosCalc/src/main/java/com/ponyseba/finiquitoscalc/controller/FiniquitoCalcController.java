@@ -78,7 +78,7 @@ public class FiniquitoCalcController {
             MySqlConnector connector = new MySqlConnector();
             Connection bdconnect = connector.createConnection();
 
-            String query = "INSERT INTO Finiquito (fecha_ini, fecha_fin, meses_trabajados_total, fecha_pago_finiquito, monto_salario_indemnizacion, monto_salario_vacaciones, dias_feriado_legal, indem_anios_servicio, indem_vacaciones, id_usuario, id_empresa, totalIndemnizacion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO Finiquito (fecha_ini, fecha_fin, meses_trabajados_total, fecha_pago_finiquito, monto_salario_indemnizacion, monto_salario_vacaciones, dias_feriado_legal, indem_anios_servicio, indem_vacaciones, id_usuario, id_empresa, totalIndemnizacion, nombre_trabajador) VALUES (?,?,?,?,?,?,?,?,?,?,?,?, ?)";
 
             PreparedStatement stmt = bdconnect.prepareStatement(query);
             stmt.setDate(1, Date.valueOf(nuevoFiniquto.getFechaInicioTrabajo()));
@@ -93,6 +93,7 @@ public class FiniquitoCalcController {
             stmt.setInt(10, sesionUsuario.getUsuarioLogueado().getIdUsuario());
             stmt.setInt(11, 1);
             stmt.setInt(12, nuevoFiniquto.getTotalIndemnizacion());
+            stmt.setString(13, nuevoFiniquto.getNombreTrabajador());
             
             int esEjecutadaCorrectamente = stmt.executeUpdate();
             

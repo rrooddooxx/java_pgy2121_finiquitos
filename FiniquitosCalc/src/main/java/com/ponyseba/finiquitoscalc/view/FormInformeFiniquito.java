@@ -331,6 +331,14 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Volver al Menu Principal");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenu1MouseReleased(evt);
+            }
+        });
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -339,6 +347,14 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenu2MouseReleased(evt);
+            }
+        });
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -424,14 +440,21 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
-        boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito, sesionUsuario);
+        String nombreTrabajador = JOptionPane.showInputDialog(rootPane, "Ingrese nombre del trabajador: ");
         
-        if(crearFiniquitoReturn) {
-            JOptionPane.showMessageDialog(rootPane, "Finiquito creado correctamente y guardado en el sistema!");
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Error en la creación del finiquito");
+        if(nombreTrabajador != null){
+            FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
+            
+            informeFiniquito.setNombreTrabajador(nombreTrabajador);
+            boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito, sesionUsuario);
+        
+            if(crearFiniquitoReturn) {
+                JOptionPane.showMessageDialog(rootPane, "Finiquito creado correctamente y guardado en el sistema!");
+            }else {
+                JOptionPane.showMessageDialog(rootPane, "Error en la creación del finiquito");
+            }
         }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
@@ -444,6 +467,25 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         System.exit(1);
     }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        System.exit(1);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseReleased
+        System.exit(1);
+    }//GEN-LAST:event_jMenu2MouseReleased
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        FormPanelCentral formPanelCentral = new FormPanelCentral();
+        formPanelCentral.setVisible(true);
+        formPanelCentral.setAlwaysOnTop(true);
+        dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseReleased
+        
+    }//GEN-LAST:event_jMenu1MouseReleased
 
     /**
      * @param args the command line arguments
