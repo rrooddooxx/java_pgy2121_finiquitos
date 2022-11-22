@@ -4,8 +4,12 @@
  */
 package com.ponyseba.finiquitoscalc.view;
 
+import com.ponyseba.finiquitoscalc.controller.ExcelController;
 import com.ponyseba.finiquitoscalc.controller.FiniquitoCalcController;
+import java.io.IOException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Finiquito;
 import model.SesionUsuario;
 
@@ -14,6 +18,8 @@ import model.SesionUsuario;
  * @author ponyta
  */
 public class FormMostrarFiniquito extends javax.swing.JFrame {
+    
+    Finiquito finiquito;
     
     SesionUsuario sesionUsuario;
     /**
@@ -225,10 +231,14 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         jtxt_totalConPreaviso.setFont(new java.awt.Font("Ligconsolata", 1, 30)); // NOI18N
         jtxt_totalConPreaviso.setBorder(null);
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
         jButton2.setFont(new java.awt.Font("Ligconsolata", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Exportar a Excel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel47.setFont(new java.awt.Font("Ligconsolata", 1, 18)); // NOI18N
         jLabel47.setText("Nombre trabajador:");
@@ -243,17 +253,14 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
             .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel36))
-                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(jtxt_fechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel36))
+                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jtxt_fechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
                         .addContainerGap(57, Short.MAX_VALUE)
                         .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,9 +271,6 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                                 .addComponent(jtxt_indemnizacionAniosServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(186, 186, 186)))))
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jtxt_salarioVacaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +282,12 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtxt_indemnizacionVacaciones))))
+                            .addComponent(jtxt_indemnizacionVacaciones)))
+                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_salarioVacaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
                         .addGap(153, 153, 153)
@@ -314,14 +323,9 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                 .addComponent(jtxt_nombreTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                        .addComponent(jLabel38)
-                        .addGap(95, 95, 95))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(439, 439, 439))))
+                .addContainerGap(823, Short.MAX_VALUE)
+                .addComponent(jLabel38)
+                .addGap(95, 95, 95))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
                 .addGap(159, 159, 159)
                 .addComponent(jtxt_totalSinPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -374,9 +378,9 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxt_totalConPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_totalSinPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(35, 35, 35)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         jMenu1.setText("Volver al Menú Principal");
@@ -452,7 +456,7 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
         int idFiniquito = Integer.parseInt(this.jtxt_idFiniquito.getText());
         
-        Finiquito finiquito = finiquitoCalcController.buscarFiniquitoPorIdFiniquito(sesionUsuario, idFiniquito);
+        finiquito = finiquitoCalcController.buscarFiniquitoPorIdFiniquito(sesionUsuario, idFiniquito);
         
         this.jtxt_nombreTrabajador.setText(finiquito.getNombreTrabajador());
         this.jtxt_fechaInicio.setText(String.valueOf(finiquito.getFechaInicioTrabajo()));
@@ -472,6 +476,16 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jbtn_buscarFiniquitoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ExcelController excelController = new ExcelController();
+        try {
+            excelController.generarFiniquitoXls(finiquito);
+        } catch (IOException ex) {
+            Logger.getLogger(FormMostrarFiniquito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -511,39 +525,11 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -552,51 +538,10 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField_fechaInicio;
-    private javax.swing.JTextField jTextField_fechaInicio1;
-    private javax.swing.JTextField jTextField_fechaInicio2;
-    private javax.swing.JTextField jTextField_fechaLimitePago;
-    private javax.swing.JTextField jTextField_fechaLimitePago1;
-    private javax.swing.JTextField jTextField_fechaLimitePago2;
-    private javax.swing.JTextField jTextField_fechaTermino;
-    private javax.swing.JTextField jTextField_fechaTermino1;
-    private javax.swing.JTextField jTextField_fechaTermino2;
-    private javax.swing.JTextField jTextField_feriadoLegal;
-    private javax.swing.JTextField jTextField_feriadoLegal1;
-    private javax.swing.JTextField jTextField_feriadoLegal2;
-    private javax.swing.JTextField jTextField_indemnizacionAniosServicio;
-    private javax.swing.JTextField jTextField_indemnizacionAniosServicio1;
-    private javax.swing.JTextField jTextField_indemnizacionAniosServicio2;
-    private javax.swing.JTextField jTextField_indemnizacionVacaciones;
-    private javax.swing.JTextField jTextField_indemnizacionVacaciones1;
-    private javax.swing.JTextField jTextField_indemnizacionVacaciones2;
-    private javax.swing.JTextField jTextField_salarioIndemnizacion;
-    private javax.swing.JTextField jTextField_salarioIndemnizacion1;
-    private javax.swing.JTextField jTextField_salarioIndemnizacion2;
-    private javax.swing.JTextField jTextField_salarioVacaciones;
-    private javax.swing.JTextField jTextField_salarioVacaciones1;
-    private javax.swing.JTextField jTextField_salarioVacaciones2;
-    private javax.swing.JTextField jTextField_tiempoTrabajado;
-    private javax.swing.JTextField jTextField_tiempoTrabajado1;
-    private javax.swing.JTextField jTextField_tiempoTrabajado2;
-    private javax.swing.JTextField jTextField_totalConPreAviso;
-    private javax.swing.JTextField jTextField_totalConPreAviso1;
-    private javax.swing.JTextField jTextField_totalConPreAviso2;
-    private javax.swing.JTextField jTextField_totalSinPreAviso;
-    private javax.swing.JTextField jTextField_totalSinPreAviso1;
-    private javax.swing.JTextField jTextField_totalSinPreAviso2;
     private javax.swing.JButton jbtn_buscarFiniquito;
     private javax.swing.JPanel jpnl_finiquito;
     private javax.swing.JTextField jtxt_fechaFin;
