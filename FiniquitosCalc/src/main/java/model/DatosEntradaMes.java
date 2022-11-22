@@ -15,7 +15,7 @@ public class DatosEntradaMes {
     public DatosEntradaMes() {
     }
 
-    public DatosEntradaMes(int sueldoBase, int gratificacion, int colacion, int movilizacion, int bonoImponible, int chequeRestaurant, int desgasteHerramientas, int viaticos, int semanaCorrida) {
+    public DatosEntradaMes(int sueldoBase, int gratificacion, int colacion, int movilizacion, int bonoImponible, int chequeRestaurant, int desgasteHerramientas, int viaticos, int semanaCorrida, int comision) {
         this.sueldoBase = sueldoBase;
         this.gratificacion = gratificacion;
         this.colacion = colacion;
@@ -25,6 +25,18 @@ public class DatosEntradaMes {
         this.desgasteHerramientas = desgasteHerramientas;
         this.viaticos = viaticos;
         this.semanaCorrida = semanaCorrida;
+        this.comision = comision;
+    }
+    
+    public DatosEntradaMes(int sueldoBase, int gratificacion, int colacion, int movilizacion, int bonoImponible, int chequeRestaurant, int desgasteHerramientas, int viaticos) {
+        this.sueldoBase = sueldoBase;
+        this.gratificacion = gratificacion;
+        this.colacion = colacion;
+        this.movilizacion = movilizacion;
+        this.bonoImponible = bonoImponible;
+        this.chequeRestaurant = chequeRestaurant;
+        this.desgasteHerramientas = desgasteHerramientas;
+        this.viaticos = viaticos;
     }
 
     
@@ -109,14 +121,26 @@ public class DatosEntradaMes {
         this.comision = comision;
     }
 
-    
-    
-
     @Override
     public String toString() {
-        return "DatosEntradaMes{" + "sueldoBase=" + sueldoBase + ", gratificacion=" + gratificacion + ", colacion=" + colacion + ", movilizacion=" + movilizacion + ", bonoImponible=" + bonoImponible + ", chequeRestaurant=" + chequeRestaurant + ", desgasteHerramientas=" + desgasteHerramientas + ", viaticos=" + viaticos + ", semanaCorrida=" + semanaCorrida + ", comision=" + comision + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("DatosEntradaMes{");
+        sb.append("sueldoBase=").append(sueldoBase);
+        sb.append(", gratificacion=").append(gratificacion);
+        sb.append(", colacion=").append(colacion);
+        sb.append(", movilizacion=").append(movilizacion);
+        sb.append(", bonoImponible=").append(bonoImponible);
+        sb.append(", chequeRestaurant=").append(chequeRestaurant);
+        sb.append(", desgasteHerramientas=").append(desgasteHerramientas);
+        sb.append(", viaticos=").append(viaticos);
+        sb.append(", semanaCorrida=").append(semanaCorrida);
+        sb.append(", comision=").append(comision);
+        sb.append('}');
+        return sb.toString();
     }
+
     
+
     
     
 }

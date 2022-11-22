@@ -5,6 +5,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -14,9 +15,7 @@ public class FormularioFiniquito {
     
     private LocalDate fechaInicioTrabajo;
     private LocalDate fechaFinTrabajo;
-    private int artCausalFinContrato;
-    private int numArtCausalFinContrato;
-    private boolean salarioFijo;
+    private String artCausalFinContrato;
     private DatosEntradaMes mesUno;
     private DatosEntradaMes mesDos;
     private DatosEntradaMes mesTres;
@@ -25,14 +24,22 @@ public class FormularioFiniquito {
     public FormularioFiniquito() {
     }
 
-    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int artCausalFinContrato, int numArtCausalFinContrato, DatosEntradaMes mesUno, DatosEntradaMes mesDos, DatosEntradaMes mesTres) {
+    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int diasTomadosVacaciones, String artCausalFinContrato, DatosEntradaMes mesUno, DatosEntradaMes mesDos, DatosEntradaMes mesTres) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
         this.artCausalFinContrato = artCausalFinContrato;
-        this.numArtCausalFinContrato = numArtCausalFinContrato;
         this.mesUno = mesUno;
         this.mesDos = mesDos;
         this.mesTres = mesTres;
+        this.diasTomadosVacaciones = diasTomadosVacaciones;
+    }
+    
+    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int diasTomadosVacaciones, String artCausalFinContrato, DatosEntradaMes mesUno) {
+        this.fechaInicioTrabajo = fechaInicioTrabajo;
+        this.fechaFinTrabajo = fechaFinTrabajo;
+        this.artCausalFinContrato = artCausalFinContrato;
+        this.mesUno = mesUno;
+        this.diasTomadosVacaciones = diasTomadosVacaciones;
     }
 
     public LocalDate getFechaInicioTrabajo() {
@@ -51,21 +58,14 @@ public class FormularioFiniquito {
         this.fechaFinTrabajo = fechaFinTrabajo;
     }
 
-    public int getArtCausalFinContrato() {
+    public String getArtCausalFinContrato() {
         return artCausalFinContrato;
     }
 
-    public void setArtCausalFinContrato(int artCausalFinContrato) {
+    public void setArtCausalFinContrato(String artCausalFinContrato) {
         this.artCausalFinContrato = artCausalFinContrato;
     }
 
-    public int getNumArtCausalFinContrato() {
-        return numArtCausalFinContrato;
-    }
-
-    public void setNumArtCausalFinContrato(int numArtCausalFinContrato) {
-        this.numArtCausalFinContrato = numArtCausalFinContrato;
-    }
 
     public DatosEntradaMes getMesUno() {
         return mesUno;
@@ -99,21 +99,25 @@ public class FormularioFiniquito {
         this.diasTomadosVacaciones = diasTomadosVacaciones;
     }
 
-    public boolean isSalarioFijo() {
-        return salarioFijo;
-    }
-
-    public void setSalarioFijo(boolean salarioFijo) {
-        this.salarioFijo = salarioFijo;
-    }
 
     @Override
     public String toString() {
-        return "FormularioFiniquito{" + "fechaInicioTrabajo=" + fechaInicioTrabajo + ", fechaFinTrabajo=" + fechaFinTrabajo + ", artCausalFinContrato=" + artCausalFinContrato + ", numArtCausalFinContrato=" + numArtCausalFinContrato + ", salarioFijo=" + salarioFijo + ", mesUno=" + mesUno + ", mesDos=" + mesDos + ", mesTres=" + mesTres + ", diasTomadosVacaciones=" + diasTomadosVacaciones + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("FormularioFiniquito{");
+        sb.append("fechaInicioTrabajo=").append(fechaInicioTrabajo);
+        sb.append(", fechaFinTrabajo=").append(fechaFinTrabajo);
+        sb.append(", artCausalFinContrato=").append(artCausalFinContrato);
+        sb.append(", mesUno=").append(mesUno);
+        sb.append(", mesDos=").append(mesDos);
+        sb.append(", mesTres=").append(mesTres);
+        sb.append(", diasTomadosVacaciones=").append(diasTomadosVacaciones);
+        sb.append('}');
+        return sb.toString();
     }
     
     
     
+
 
     
     
