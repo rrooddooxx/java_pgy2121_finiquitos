@@ -4,6 +4,8 @@
  */
 package com.ponyseba.finiquitoscalc.view;
 
+import com.ponyseba.finiquitoscalc.controller.FiniquitoCalcController;
+import com.ponyseba.finiquitoscalc.controller.FormularioFiniquitoController;
 import com.ponyseba.finiquitoscalc.utils.ConstantesCausales;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -12,14 +14,17 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import model.DatosEntradaMes;
+import model.Finiquito;
 import model.FormularioFiniquito;
+import model.SesionUsuario;
 
 /**
  *
  * @author sebastiankravetz
  */
 public class FormFormularioSueldoVariable extends javax.swing.JFrame {
-
+    
+    SesionUsuario sesionUsuario;
     
     HashMap<String, String> listaCausales = ConstantesCausales.causalesHashMap();
     
@@ -40,11 +45,16 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
     /**
      * Creates new form FormFormularioFiniquito
      */
-    public FormFormularioSueldoVariable() {
+    public FormFormularioSueldoVariable(SesionUsuario sesionUsuario) {
         initComponents();
         llenarComboBox();
         this.jComboBox_causalesLista.setSelectedItem(ConstantesCausales.PLACEHOLDER_VALUE);
     }
+
+    public FormFormularioSueldoVariable() {
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -418,13 +428,52 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         int diasTomadosVacaciones = Integer.parseInt(jTextPane_diasVacacionesTomados.getText());
         
         DatosEntradaMes mesUno = new DatosEntradaMes(montoSueldoFijo, montoGratificacion, montoColacion, montoMovilizacion, montoBonoImponible, montoChequeRestaurant, montoDesgasteHerramientas, montoViaticos);
-
-        FormularioFiniquito formularioFiniquitoSueldoVariable = new FormularioFiniquito(fechaIngresoFijo, fechaEgresoFijo, diasTomadosVacaciones, artCausalDespido, mesUno, false);
         
-        System.out.println(formularioFiniquitoSueldoVariable.toString());
+        DatosEntradaMes mesDos = new DatosEntradaMes();
+        DatosEntradaMes mesTres = new DatosEntradaMes();
+        
+
+        FormularioFiniquito formularioFiniquitoSueldoVariable = 
+                new FormularioFiniquito(fechaIngresoFijo, fechaEgresoFijo, diasTomadosVacaciones, artCausalDespido, mesUno, mesDos, mesTres, false);
+        
+        // mandar a llamar todos los métodos que tienen que calcular algo para guardar en el informe
+        // guardar el retorno de cada método en una variable
+        FormularioFiniquitoController formularioFiniquitoController = new FormularioFiniquitoController();
+        
+        FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
+        
+        int salarioIndemnizacion = formularioFiniquitoController.calcSalarioIndemnizacion(formularioFiniquitoSueldoVariable);
+        int salarioVacaciones = formularioFiniquitoController.calcSalarioVacaciones(formularioFiniquitoSueldoVariable);
+        double feriadoLegal = formularioFiniquitoController.calcFeriadoLegal(formularioFiniquitoSueldoVariable);
+        int indemnizacionAniosServicio = formularioFiniquitoController.calcIndemnizacionAniosServicio(formularioFiniquitoSueldoVariable);
+        int indemnizacionVacaciones = formularioFiniquitoController.calcIndemnizacionVacaciones(formularioFiniquitoSueldoVariable);
+        LocalDate fechaPagoFiniquito = formularioFiniquitoController.calcFechaPagoFiniquito(formularioFiniquitoSueldoVariable);
+        int totalIndemnizacion = formularioFiniquitoController.calcTotalIndemnizacion(formularioFiniquitoSueldoVariable);
+        
+        
+        // instanciar Finiquito(informe)
+        Finiquito nuevoFiniquito = new Finiquito();
+        nuevoFiniquito.setFechaInicioTrabajo(fechaIngresoFijo);
+        nuevoFiniquito.setFechaFinTrabajo(fechaEgresoFijo);
+        
+        String diasTrabajados = finiquitoCalcController.tiempoTrabajado(nuevoFiniquito);
+        nuevoFiniquito.setMesesTrabajadosTotal(diasTrabajados);
+        
+        nuevoFiniquito.setSalarioIndemnizacion(salarioIndemnizacion);
+        nuevoFiniquito.setSalarioVacaciones(salarioVacaciones);
+        nuevoFiniquito.setFeriadoLegalHabil(feriadoLegal);
+        nuevoFiniquito.setIndeminizacionAniosServicio(indemnizacionAniosServicio);
+        nuevoFiniquito.setIndemnizacionVacaciones(indemnizacionVacaciones);
+        nuevoFiniquito.setFechaPagoFiniquito(fechaPagoFiniquito);
+        nuevoFiniquito.setTotalIndemnizacion(totalIndemnizacion);
+        
+        FormInformeFiniquito formInformeFinal = new FormInformeFiniquito(nuevoFiniquito, sesionUsuario);
+        formInformeFinal.setVisible(true);
+        formInformeFinal.setAlwaysOnTop(true);
+        dispose();
 
     }
-    //GEN-LAST:event_jButton_calcularFiniquitoSalarioFijo1ActionPerformed
+//GEN-LAST:event_jButton_calcularFiniquitoSalarioFijo1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:

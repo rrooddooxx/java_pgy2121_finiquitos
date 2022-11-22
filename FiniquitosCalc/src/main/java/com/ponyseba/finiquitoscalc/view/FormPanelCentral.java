@@ -175,7 +175,7 @@ public class FormPanelCentral extends javax.swing.JFrame {
 
     private void jButton_vistaSueldoVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_vistaSueldoVariableActionPerformed
         // TODO add your handling code here:
-        FormFormularioSueldoVariable formSueldoVariable = new FormFormularioSueldoVariable();
+        FormFormularioSueldoVariable formSueldoVariable = new FormFormularioSueldoVariable(sesionUsuario);
         formSueldoVariable.setVisible(true);
         formSueldoVariable.setAlwaysOnTop(true);
         dispose();

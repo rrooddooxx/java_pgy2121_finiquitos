@@ -47,6 +47,10 @@ public class FormFormularioSueldoFijo extends javax.swing.JFrame {
         
     }
 
+    public FormFormularioSueldoFijo() {
+    }
+
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
