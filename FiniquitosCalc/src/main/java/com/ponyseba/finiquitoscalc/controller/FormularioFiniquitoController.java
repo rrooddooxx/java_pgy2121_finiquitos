@@ -112,7 +112,8 @@ public class FormularioFiniquitoController {
     
     public int calcIndemnizacionVacaciones(FormularioFiniquito datos){
         
-        double indemnizacion = this.calcFeriadoLegal(datos) * this.calcSalarioVacaciones(datos);
+        double salarioVacaciones = this.calcSalarioVacaciones(datos)/30;
+        double indemnizacion = this.calcFeriadoLegal(datos) * salarioVacaciones;
         int indemnizacionVacaciones = (int)Math.round(indemnizacion);
         
         return indemnizacionVacaciones;
@@ -138,6 +139,23 @@ public class FormularioFiniquitoController {
         return totalIndemnizacion;
     }
     
+    public LocalDate calcFechaPagoFiniquito(FormularioFiniquito datos){
+        
+        LocalDate fecha = datos.getFechaFinTrabajo();
+        int dias = 10;
+        
+        Predicate<LocalDate> isWeekend = date -> date.getDayOfWeek()==DayOfWeek.SATURDAY || date.getDayOfWeek()==DayOfWeek.SUNDAY;
+        
+        LocalDate fechaFinal = fecha;
+        while(dias>0){
+            fechaFinal = fechaFinal.plusDays(1);
+            if(isWeekend.negate().test(fechaFinal)){
+                dias--;
+            }
+        }
+        
+        return fechaFinal;
+    }
     
     
 }

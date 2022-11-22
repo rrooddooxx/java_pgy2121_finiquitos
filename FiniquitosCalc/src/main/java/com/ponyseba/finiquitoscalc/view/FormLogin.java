@@ -195,7 +195,7 @@ public class FormLogin extends javax.swing.JFrame {
         char[] passwordUsuario = this.jLabel_passwordUsuario.getPassword();
         SesionUsuario sesionUsuario = new SesionUsuario();
         
-        FormPanelCentral formFormularioFiniquito = new FormPanelCentral();
+        
         SesionController sesionController = new SesionController();
        
         Pattern regexPattern = Pattern.compile("\\b[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}\\b");
@@ -209,7 +209,7 @@ public class FormLogin extends javax.swing.JFrame {
             sesionUsuario.setSesionValida(usuarioValidar.isSesionValida());
             sesionUsuario.setMensajeError(usuarioValidar.getMensajeError());
             sesionUsuario.setUsuarioLogueado(usuarioValidar.getUsuarioLogueado());
-            System.out.println(sesionUsuario.toString());
+
             
             if(sesionUsuario.getMensajeError().trim().length() > 0){
                 this.jLabel_errorMessage.setText(sesionUsuario.getMensajeError());
@@ -219,6 +219,7 @@ public class FormLogin extends javax.swing.JFrame {
         }
         
         if(sesionUsuario.isSesionValida()) {
+            FormPanelCentral formFormularioFiniquito = new FormPanelCentral(sesionUsuario);
             formFormularioFiniquito.setVisible(true);
             formFormularioFiniquito.setAlwaysOnTop(true);
             this.setVisible(false);

@@ -4,18 +4,30 @@
  */
 package com.ponyseba.finiquitoscalc.view;
 
+import model.SesionUsuario;
+
 /**
  *
  * @author sebastiankravetz
  */
 public class FormPanelCentral extends javax.swing.JFrame {
+    
+    SesionUsuario sesionUsuario;
 
     /**
      * Creates new form FormFormularioFiniquito
      */
-    public FormPanelCentral() {
+    public FormPanelCentral(SesionUsuario sesionUsuario) {
         initComponents();
+        this.sesionUsuario = sesionUsuario;
+        
+        
     }
+
+    public FormPanelCentral() {
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,7 +167,7 @@ public class FormPanelCentral extends javax.swing.JFrame {
 
     private void jButton_vistaSueldoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_vistaSueldoFijoActionPerformed
         // TODO add your handling code here:
-        FormFormularioSueldoFijo formSueldoFijo = new FormFormularioSueldoFijo();
+        FormFormularioSueldoFijo formSueldoFijo = new FormFormularioSueldoFijo(sesionUsuario);
         formSueldoFijo.setVisible(true);
         formSueldoFijo.setAlwaysOnTop(true);
         dispose();
@@ -163,7 +175,7 @@ public class FormPanelCentral extends javax.swing.JFrame {
 
     private void jButton_vistaSueldoVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_vistaSueldoVariableActionPerformed
         // TODO add your handling code here:
-        FormFormularioSueldoVariable formSueldoVariable = new FormFormularioSueldoVariable();
+        FormFormularioSueldoVariable formSueldoVariable = new FormFormularioSueldoVariable(sesionUsuario);
         formSueldoVariable.setVisible(true);
         formSueldoVariable.setAlwaysOnTop(true);
         dispose();
