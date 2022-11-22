@@ -16,11 +16,11 @@ Maven
 ## 🚀 Ejecución
 ```
 1. Clonar repositorio
-2. Ejecutar archivo.jar
+2. Ejecutar target/FiniquitosCalc-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
-## 🛠 Configuración
+## 🛠 Colaboración
 ```
-Archivo de properties: nbproject/project.properties
+Clona el proyecto, crea un branch y solicita un Pull Request!
 ```
 
