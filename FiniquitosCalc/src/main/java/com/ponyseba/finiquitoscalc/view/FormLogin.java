@@ -195,7 +195,7 @@ public class FormLogin extends javax.swing.JFrame {
         char[] passwordUsuario = this.jLabel_passwordUsuario.getPassword();
         SesionUsuario sesionUsuario = new SesionUsuario();
         
-        FormFormularioFiniquito formFormularioFiniquito = new FormFormularioFiniquito();
+        FormPanelCentral formFormularioFiniquito = new FormPanelCentral();
         SesionController sesionController = new SesionController();
        
         Pattern regexPattern = Pattern.compile("\\b[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}\\b");
