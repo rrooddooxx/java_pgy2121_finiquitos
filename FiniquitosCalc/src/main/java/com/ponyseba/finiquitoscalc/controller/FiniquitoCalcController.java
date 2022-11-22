@@ -69,7 +69,7 @@ public class FiniquitoCalcController {
         return listaFiniquitos;
     }
     
-    public boolean crearFiniquito(Finiquito nuevoFiniquto, SesionUsuario sesionUsuario){
+    public boolean crearFiniquito(Finiquito nuevoFiniquto){
         
         boolean returnFlag = false;
         
@@ -90,7 +90,7 @@ public class FiniquitoCalcController {
             stmt.setDouble(7, nuevoFiniquto.getFeriadoLegalHabil());
             stmt.setInt(8, nuevoFiniquto.getIndeminizacionAniosServicio());
             stmt.setInt(9, nuevoFiniquto.getIndemnizacionVacaciones());
-            stmt.setInt(10, sesionUsuario.getUsuarioLogueado().getIdUsuario());
+            stmt.setInt(10, nuevoFiniquto.getIdUsuario());
             stmt.setInt(11, 1);
             stmt.setInt(12, nuevoFiniquto.getTotalIndemnizacion());
             stmt.setString(13, nuevoFiniquto.getNombreTrabajador());

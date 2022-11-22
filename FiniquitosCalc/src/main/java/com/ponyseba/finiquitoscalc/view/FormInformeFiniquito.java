@@ -331,16 +331,23 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Volver al Menu Principal");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 70b6bd5 ([@wwiiddeeweb] fixes on forms)
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
             }
+<<<<<<< HEAD
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jMenu1MouseReleased(evt);
             }
         });
 
+=======
+        });
+>>>>>>> 70b6bd5 ([@wwiiddeeweb] fixes on forms)
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -349,16 +356,23 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 70b6bd5 ([@wwiiddeeweb] fixes on forms)
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
             }
+<<<<<<< HEAD
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jMenu2MouseReleased(evt);
             }
         });
 
+=======
+        });
+>>>>>>> 70b6bd5 ([@wwiiddeeweb] fixes on forms)
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -444,7 +458,12 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         String nombreTrabajador = JOptionPane.showInputDialog(rootPane, "Ingrese nombre del trabajador: ");
+=======
+        FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
+        boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito);
+>>>>>>> 70b6bd5 ([@wwiiddeeweb] fixes on forms)
         
         if(nombreTrabajador != null){
             FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
@@ -462,16 +481,14 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        FormPanelCentral formPanelCentral = new FormPanelCentral();
-        formPanelCentral.setVisible(true);
-        formPanelCentral.setAlwaysOnTop(true);
-        dispose();
+      
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        System.exit(1);
+        
     }//GEN-LAST:event_jMenu2ActionPerformed
 
+<<<<<<< HEAD
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         System.exit(1);
@@ -483,14 +500,26 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         FormPanelCentral formPanelCentral = new FormPanelCentral();
+=======
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+          FormPanelCentral formPanelCentral = new FormPanelCentral();
+>>>>>>> 70b6bd5 ([@wwiiddeeweb] fixes on forms)
         formPanelCentral.setVisible(true);
         formPanelCentral.setAlwaysOnTop(true);
         dispose();
     }//GEN-LAST:event_jMenu1MouseClicked
 
+<<<<<<< HEAD
     private void jMenu1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseReleased
         
     }//GEN-LAST:event_jMenu1MouseReleased
+=======
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu2MouseClicked
+>>>>>>> 70b6bd5 ([@wwiiddeeweb] fixes on forms)
 
     /**
      * @param args the command line arguments

@@ -452,6 +452,9 @@ public class FormFormularioSueldoFijo extends javax.swing.JFrame {
         nuevoFiniquito.setIndemnizacionVacaciones(indemnizacionVacaciones);
         nuevoFiniquito.setFechaPagoFiniquito(fechaPagoFiniquito);
         nuevoFiniquito.setTotalIndemnizacion(totalIndemnizacion);
+        if(sesionUsuario.isSesionValida()){
+            nuevoFiniquito.setIdUsuario(sesionUsuario.getUsuarioLogueado().getIdUsuario());
+        }
         
         FormInformeFiniquito formInformeFinal = new FormInformeFiniquito(nuevoFiniquito, sesionUsuario);
         formInformeFinal.setVisible(true);
