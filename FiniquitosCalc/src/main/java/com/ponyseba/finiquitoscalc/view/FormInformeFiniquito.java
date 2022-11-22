@@ -331,9 +331,19 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Volver al Menu Principal");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -423,6 +433,17 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Error en la creación del finiquito");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        FormPanelCentral formPanelCentral = new FormPanelCentral();
+        formPanelCentral.setVisible(true);
+        formPanelCentral.setAlwaysOnTop(true);
+        dispose();
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        System.exit(1);
+    }//GEN-LAST:event_jMenu2ActionPerformed
 
     /**
      * @param args the command line arguments
