@@ -101,7 +101,10 @@ public class FormularioFiniquitoController {
         
         long diasTotales = DAYS.between(datos.getFechaFinTrabajo(), this.calcDiasHabiles(datos));
         int diasExtra = (int)diasTotales - this.calcVacacionesDisponibles(datos);
-        double feriadoLegal = this.calcFeriadoLegalTotal(datos) - datos.getDiasTomadosVacaciones() + diasExtra;
+        double feriadoLegalPre = this.calcFeriadoLegalTotal(datos) - datos.getDiasTomadosVacaciones() + diasExtra;
+        double feriadoLegal = feriadoLegalPre*Math.pow(10,3);
+        feriadoLegal = Math.floor(feriadoLegal);
+        feriadoLegal = feriadoLegal/Math.pow(10,3);
         return feriadoLegal;
         
     }
