@@ -15,11 +15,11 @@ public class Finiquito {
     private int idFiniquito;
     private LocalDate fechaInicioTrabajo;
     private LocalDate fechaFinTrabajo;
-    private int mesesTrabajadosTotal;
+    private String mesesTrabajadosTotal;
     private LocalDate fechaPagoFiniquito;
     private int salarioIndemnizacion;
     private int salarioVacaciones;
-    private int feriadoLegalHabil;
+    private double feriadoLegalHabil;
     private int indeminizacionAniosServicio;
     private int indemnizacionVacaciones;
     private int totalIndemnizacion;
@@ -29,7 +29,7 @@ public class Finiquito {
     public Finiquito() {
     }
 
-    public Finiquito(int idFiniquito, LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int mesesTrabajadosTotal, LocalDate fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, int feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int idUsuario, String nombreEmpresa) {
+    public Finiquito(int idFiniquito, LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, String mesesTrabajadosTotal, LocalDate fechaPagoFiniquito, int salarioIndemnizacion, int salarioVacaciones, double feriadoLegalHabil, int indeminizacionAniosServicio, int indemnizacionVacaciones, int totalIndemnizacion, int idUsuario, String nombreEmpresa) {
         this.idFiniquito = idFiniquito;
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
@@ -40,6 +40,7 @@ public class Finiquito {
         this.feriadoLegalHabil = feriadoLegalHabil;
         this.indeminizacionAniosServicio = indeminizacionAniosServicio;
         this.indemnizacionVacaciones = indemnizacionVacaciones;
+        this.totalIndemnizacion = totalIndemnizacion;
         this.idUsuario = idUsuario;
         this.nombreEmpresa = nombreEmpresa;
     }
@@ -68,11 +69,11 @@ public class Finiquito {
         this.fechaFinTrabajo = fechaFinTrabajo;
     }
 
-    public int getMesesTrabajadosTotal() {
+    public String getMesesTrabajadosTotal() {
         return mesesTrabajadosTotal;
     }
 
-    public void setMesesTrabajadosTotal(int mesesTrabajadosTotal) {
+    public void setMesesTrabajadosTotal(String mesesTrabajadosTotal) {
         this.mesesTrabajadosTotal = mesesTrabajadosTotal;
     }
 
@@ -100,11 +101,11 @@ public class Finiquito {
         this.salarioVacaciones = salarioVacaciones;
     }
 
-    public int getFeriadoLegalHabil() {
+    public double getFeriadoLegalHabil() {
         return feriadoLegalHabil;
     }
 
-    public void setFeriadoLegalHabil(int feriadoLegalHabil) {
+    public void setFeriadoLegalHabil(double feriadoLegalHabil) {
         this.feriadoLegalHabil = feriadoLegalHabil;
     }
 
@@ -140,10 +141,22 @@ public class Finiquito {
         this.nombreEmpresa = nombreEmpresa;
     }
 
+    public int getTotalIndemnizacion() {
+        return totalIndemnizacion;
+    }
+
+    public void setTotalIndemnizacion(int totalIndemnizacion) {
+        this.totalIndemnizacion = totalIndemnizacion;
+    }
+
     @Override
     public String toString() {
-        return "Finiquito{" + "idFiniquito=" + idFiniquito + ", fechaInicioTrabajo=" + fechaInicioTrabajo + ", fechaFinTrabajo=" + fechaFinTrabajo + ", mesesTrabajadosTotal=" + mesesTrabajadosTotal + ", fechaPagoFiniquito=" + fechaPagoFiniquito + ", salarioIndemnizacion=" + salarioIndemnizacion + ", salarioVacaciones=" + salarioVacaciones + ", feriadoLegalHabil=" + feriadoLegalHabil + ", indeminizacionAniosServicio=" + indeminizacionAniosServicio + ", indemnizacionVacaciones=" + indemnizacionVacaciones + ", idUsuario=" + idUsuario + ", nombreEmpresa=" + nombreEmpresa + '}';
+        return "Finiquito{" + "idFiniquito=" + idFiniquito + ", fechaInicioTrabajo=" + fechaInicioTrabajo + ", fechaFinTrabajo=" + fechaFinTrabajo + ", mesesTrabajadosTotal=" + mesesTrabajadosTotal + ", fechaPagoFiniquito=" + fechaPagoFiniquito + ", salarioIndemnizacion=" + salarioIndemnizacion + ", salarioVacaciones=" + salarioVacaciones + ", feriadoLegalHabil=" + feriadoLegalHabil + ", indeminizacionAniosServicio=" + indeminizacionAniosServicio + ", indemnizacionVacaciones=" + indemnizacionVacaciones + ", totalIndemnizacion=" + totalIndemnizacion + ", idUsuario=" + idUsuario + ", nombreEmpresa=" + nombreEmpresa + '}';
     }
+    
+    
+
+    
 
     
     

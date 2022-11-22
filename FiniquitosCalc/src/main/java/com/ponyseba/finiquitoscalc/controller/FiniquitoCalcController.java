@@ -41,7 +41,7 @@ public class FiniquitoCalcController {
                 Finiquito finiquito = new Finiquito();
                 finiquito.setFechaInicioTrabajo(rs.getDate("fecha_ini").toLocalDate());
                 finiquito.setFechaFinTrabajo(rs.getDate("fecha_fin").toLocalDate());
-                finiquito.setMesesTrabajadosTotal(rs.getInt("meses_trabajados_total"));
+                finiquito.setMesesTrabajadosTotal(rs.getString("meses_trabajados_total"));
                 finiquito.setFechaPagoFiniquito(rs.getDate("fecha_pago_finiquito").toLocalDate());
                 finiquito.setSalarioIndemnizacion(rs.getInt("monto_salario_indemnizacion"));
                 finiquito.setSalarioVacaciones(rs.getInt("monto_salario_vacaciones"));
