@@ -331,6 +331,11 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Volver al Menu Principal");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -339,6 +344,11 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -425,7 +435,7 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
-        boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito, sesionUsuario);
+        boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito);
         
         if(crearFiniquitoReturn) {
             JOptionPane.showMessageDialog(rootPane, "Finiquito creado correctamente y guardado en el sistema!");
@@ -435,15 +445,25 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        FormPanelCentral formPanelCentral = new FormPanelCentral();
-        formPanelCentral.setVisible(true);
-        formPanelCentral.setAlwaysOnTop(true);
-        dispose();
+      
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        System.exit(1);
+        
     }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+          FormPanelCentral formPanelCentral = new FormPanelCentral();
+        formPanelCentral.setVisible(true);
+        formPanelCentral.setAlwaysOnTop(true);
+        dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
