@@ -21,18 +21,7 @@ public class SesionController {
     private Usuario usuario = new Usuario();
     private boolean estaLogueado = false;
     
-    public boolean iniciarSesion() {
-        //
-        
-        String email, password = "";
-        
-        boolean esValido = this.validarUsuario(email, password);
-        
-        Usuario usuarioLogueado = UsuarioController.obtenerUsuario(id);
-        usuario = usuarioLogueado;
-        return false;
-    }
-    
+   
     public static boolean cerrarSesion() {
         //
         return false;
@@ -101,8 +90,6 @@ public class SesionController {
         
        return sesionUsuario;
     }
-    
-    
 
     
 }
