@@ -4,6 +4,8 @@
  */
 package com.ponyseba.finiquitoscalc.view;
 
+import com.ponyseba.finiquitoscalc.controller.FiniquitoCalcController;
+import javax.swing.JOptionPane;
 import model.Finiquito;
 import model.SesionUsuario;
 
@@ -299,6 +301,11 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Exportar o Guardar"));
 
         jButton3.setText("Guardar en el sistema");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Exportar a Excel");
 
@@ -404,6 +411,18 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
     private void jTextField_fechaLimitePagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_fechaLimitePagoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_fechaLimitePagoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
+        boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito, sesionUsuario);
+        
+        if(crearFiniquitoReturn) {
+            JOptionPane.showMessageDialog(rootPane, "Finiquito creado correctamente y guardado en el sistema!");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Error en la creación del finiquito");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

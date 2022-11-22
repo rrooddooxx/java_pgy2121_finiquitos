@@ -11,10 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.ponyseba.finiquitoscalc.db.MySqlConnector;
+import java.sql.Date;
 import static java.time.temporal.ChronoUnit.DAYS;
 import static java.time.temporal.ChronoUnit.MONTHS;
 import static java.time.temporal.ChronoUnit.YEARS;
 import model.Finiquito;
+import model.SesionUsuario;
 
 /**
  *
@@ -65,6 +67,51 @@ public class FiniquitoCalcController {
         }
 
         return listaFiniquitos;
+    }
+    
+    public boolean crearFiniquito(Finiquito nuevoFiniquto, SesionUsuario sesionUsuario){
+        
+        boolean returnFlag = false;
+        
+        try{
+
+            MySqlConnector connector = new MySqlConnector();
+            Connection bdconnect = connector.createConnection();
+
+            String query = "INSERT INTO Finiquito (fecha_ini, fecha_fin, meses_trabajados_total, fecha_pago_finiquito, monto_salario_indemnizacion, monto_salario_vacaciones, dias_feriado_legal, indem_anios_servicio, indem_vacaciones, id_usuario, id_empresa, totalIndemnizacion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            PreparedStatement stmt = bdconnect.prepareStatement(query);
+            stmt.setDate(1, Date.valueOf(nuevoFiniquto.getFechaInicioTrabajo()));
+            stmt.setDate(2, Date.valueOf(nuevoFiniquto.getFechaFinTrabajo()));
+            stmt.setString(3, nuevoFiniquto.getMesesTrabajadosTotal());
+            stmt.setDate(4, Date.valueOf(nuevoFiniquto.getFechaPagoFiniquito()));
+            stmt.setInt(5, nuevoFiniquto.getSalarioIndemnizacion());
+            stmt.setInt(6, nuevoFiniquto.getSalarioVacaciones());
+            stmt.setDouble(7, nuevoFiniquto.getFeriadoLegalHabil());
+            stmt.setInt(8, nuevoFiniquto.getIndeminizacionAniosServicio());
+            stmt.setInt(9, nuevoFiniquto.getIndemnizacionVacaciones());
+            stmt.setInt(10, sesionUsuario.getUsuarioLogueado().getIdUsuario());
+            stmt.setInt(11, 1);
+            stmt.setInt(12, nuevoFiniquto.getTotalIndemnizacion());
+            
+            int esEjecutadaCorrectamente = stmt.executeUpdate();
+            
+            if(esEjecutadaCorrectamente > 0) {
+                returnFlag = true;
+            } 
+
+            stmt.close();
+            bdconnect.close();
+            
+           
+
+        } catch(SQLException e){
+            System.out.println("Error en ejecución de query crear Finiquitos");
+            System.out.println(e.getMessage());
+            returnFlag = false;
+        }
+
+        return returnFlag;
     }
     
     
