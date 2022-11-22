@@ -472,7 +472,7 @@ public class FormFormularioSueldoFijo extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        FormPanelCentral formPanelCentral = new FormPanelCentral();
+        FormPanelCentral formPanelCentral = new FormPanelCentral(sesionUsuario);
         formPanelCentral.setVisible(true);
         formPanelCentral.setAlwaysOnTop(true);
         dispose();
