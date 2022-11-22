@@ -76,14 +76,14 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         jComboBox_causalesLista = new javax.swing.JComboBox<>();
         jCheckBox_zonaExtremaFijo = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
-        jTextField_sueldoBaseFijo = new javax.swing.JTextField();
-        jTextField_gratificacionFijo = new javax.swing.JTextField();
-        jTextField_bonoImponibleFijo = new javax.swing.JTextField();
-        jTextField_colacionFijo = new javax.swing.JTextField();
-        jTextField_movilizacionFijo = new javax.swing.JTextField();
-        jTextField_chequeRestaurant = new javax.swing.JTextField();
-        jTextField_desgasteHerramientas = new javax.swing.JTextField();
-        jTextField_viaticosFijo = new javax.swing.JTextField();
+        jTextField_sueldoBaseVariableM1 = new javax.swing.JTextField();
+        jTextField_gratificacionVariableM1 = new javax.swing.JTextField();
+        jTextField_bonoImponibleVariableM1 = new javax.swing.JTextField();
+        jTextField_colacionVariableM1 = new javax.swing.JTextField();
+        jTextField_movilizacionVariableM3 = new javax.swing.JTextField();
+        jTextField_chequeRestaurantVariableM1 = new javax.swing.JTextField();
+        jTextField_desgasteHerramientasM1 = new javax.swing.JTextField();
+        jTextField_viaticosVariablesM1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -92,6 +92,31 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jTextField_sueldoBaseVariableM2 = new javax.swing.JTextField();
+        jTextField_sueldoBaseVariableM3 = new javax.swing.JTextField();
+        jTextField_colacionVariableM2 = new javax.swing.JTextField();
+        jTextField_colacionVariableM3 = new javax.swing.JTextField();
+        jTextField_desgasteHerramientasM3 = new javax.swing.JTextField();
+        jTextField_desgasteHerramientasM2 = new javax.swing.JTextField();
+        jTextField_gratificacionVariableM3 = new javax.swing.JTextField();
+        jTextField_gratificacionVariableM2 = new javax.swing.JTextField();
+        jTextField_comisionesVariableM1 = new javax.swing.JTextField();
+        jTextField_movilizacionVariableM2 = new javax.swing.JTextField();
+        jTextField_viaticosVariablesM3 = new javax.swing.JTextField();
+        jTextField_viaticosVariablesM2 = new javax.swing.JTextField();
+        jTextField_chequeRestaurantVariableM2 = new javax.swing.JTextField();
+        jTextField_chequeRestaurantVariableM3 = new javax.swing.JTextField();
+        jTextField_bonoImponibleVariableM3 = new javax.swing.JTextField();
+        jTextField_bonoImponibleVariableM2 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField_semanaCorridaVariableM2 = new javax.swing.JTextField();
+        jTextField_semanaCorridaVariableM3 = new javax.swing.JTextField();
+        jTextField_semanaCorridaVariableM1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField_movilizacionVariableM1 = new javax.swing.JTextField();
+        jTextField_comisionesVariableM2 = new javax.swing.JTextField();
+        jTextField_comisionesVariableM3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -105,6 +130,7 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         jMenu_salir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1010, 790));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Calculadora de Finiquitos: Salario Variable");
@@ -145,32 +171,38 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jComboBox_causalesLista, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(datePicker_fechaIngresoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(datePicker_fechaEgresoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox_causalesLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox_zonaExtremaFijo)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Salario"));
+
+        jTextField_sueldoBaseVariableM1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_sueldoBaseVariableM1ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Sueldo Base(*):");
 
@@ -188,6 +220,25 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
 
         jLabel15.setText("Viáticos");
 
+        jTextField_comisionesVariableM1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_comisionesVariableM1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Semana corrida:");
+
+        jTextField_semanaCorridaVariableM1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_semanaCorridaVariableM1ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Comisiones:");
+
+        jLabel6.setFont(new java.awt.Font("Ligconsolata", 0, 18)); // NOI18N
+        jLabel6.setText("Ingresar datos de los últimos 3 meses");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -196,72 +247,147 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField_sueldoBaseFijo))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField_gratificacionFijo)
-                            .addComponent(jTextField_movilizacionFijo)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(290, 295, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField_colacionFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField_desgasteHerramientas, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField_sueldoBaseVariableM2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField_sueldoBaseVariableM3)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jTextField_colacionVariableM1)
+                                    .addComponent(jTextField_colacionVariableM2)
+                                    .addComponent(jTextField_colacionVariableM3)
+                                    .addComponent(jTextField_sueldoBaseVariableM1))
+                                .addGap(55, 55, 55)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField_movilizacionVariableM3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField_gratificacionVariableM3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField_gratificacionVariableM2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField_movilizacionVariableM2)
+                                        .addComponent(jTextField_movilizacionVariableM1, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jTextField_gratificacionVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField_desgasteHerramientasM1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField_bonoImponibleVariableM1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField_bonoImponibleVariableM3)
+                                .addComponent(jTextField_bonoImponibleVariableM2, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextField_chequeRestaurantVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_chequeRestaurantVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_chequeRestaurantVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16)
+                            .addComponent(jTextField_semanaCorridaVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTextField_desgasteHerramientasM3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField_semanaCorridaVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTextField_desgasteHerramientasM2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField_semanaCorridaVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(62, 62, 62))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField_bonoImponibleFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField_chequeRestaurant, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                        .addComponent(jTextField_viaticosFijo, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(35, 35, 35))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextField_viaticosVariablesM1)
+                            .addComponent(jTextField_viaticosVariablesM2)
+                            .addComponent(jTextField_viaticosVariablesM3)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(jTextField_comisionesVariableM1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField_comisionesVariableM2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField_comisionesVariableM3)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_sueldoBaseFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_gratificacionFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_bonoImponibleFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(jTextField_sueldoBaseVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_gratificacionVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_bonoImponibleVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_sueldoBaseVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_gratificacionVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_bonoImponibleVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_sueldoBaseVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_gratificacionVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_bonoImponibleVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13))
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_colacionFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_movilizacionFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_chequeRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_viaticosFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_desgasteHerramientas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(jTextField_colacionVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_chequeRestaurantVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_movilizacionVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_colacionVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_movilizacionVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_chequeRestaurantVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_colacionVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_movilizacionVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_chequeRestaurantVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_desgasteHerramientasM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_viaticosVariablesM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_semanaCorridaVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_desgasteHerramientasM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_viaticosVariablesM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_semanaCorridaVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_desgasteHerramientasM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_viaticosVariablesM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_semanaCorridaVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_comisionesVariableM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_comisionesVariableM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_comisionesVariableM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
@@ -276,18 +402,19 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(107, 107, 107))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
@@ -318,10 +445,7 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-
         jMenuItem2.setText("Calcular Finiquito Salario Fijo");
-
-
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -345,22 +469,22 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton_limpiarCamposFiniquitoFijo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(364, 364, 364)
-                                .addComponent(jButton_calcularFiniquitoSalarioFijo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGap(16, 16, 16)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton_calcularFiniquitoSalarioFijo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton_limpiarCamposFiniquitoFijo, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -368,19 +492,18 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton_limpiarCamposFiniquitoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton_calcularFiniquitoSalarioFijo1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_limpiarCamposFiniquitoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_calcularFiniquitoSalarioFijo1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -393,14 +516,14 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
 
     private void jButton_limpiarCamposFiniquitoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_limpiarCamposFiniquitoFijoActionPerformed
         // TODO add your handling code here:
-        this.jTextField_sueldoBaseFijo.setText("");
-        this.jTextField_gratificacionFijo.setText("");
-        this.jTextField_bonoImponibleFijo.setText("");
-        this.jTextField_colacionFijo.setText("");
-        this.jTextField_movilizacionFijo.setText("");
-        this.jTextField_chequeRestaurant.setText("");
-        this.jTextField_desgasteHerramientas.setText("");
-        this.jTextField_viaticosFijo.setText("");
+        this.jTextField_sueldoBaseVariableM1.setText("");
+        this.jTextField_gratificacionVariableM1.setText("");
+        this.jTextField_bonoImponibleVariableM1.setText("");
+        this.jTextField_colacionVariableM1.setText("");
+        this.jTextField_movilizacionVariableM3.setText("");
+        this.jTextField_chequeRestaurantVariableM1.setText("");
+        this.jTextField_desgasteHerramientasM1.setText("");
+        this.jTextField_viaticosVariablesM1.setText("");
         datePicker_fechaIngresoFijo.clear();
         datePicker_fechaEgresoFijo.clear();
         this.jCheckBox_zonaExtremaFijo.setSelected(false);
@@ -411,14 +534,16 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
 
     private void jButton_calcularFiniquitoSalarioFijo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_calcularFiniquitoSalarioFijo1ActionPerformed
         // TODO add your handling code here:
-        int montoSueldoFijo = Integer.parseInt(this.jTextField_sueldoBaseFijo.getText());
-        int montoGratificacion = Integer.parseInt(this.jTextField_gratificacionFijo.getText());
-        int montoBonoImponible = Integer.parseInt(this.jTextField_bonoImponibleFijo.getText());
-        int montoColacion = Integer.parseInt(this.jTextField_colacionFijo.getText());
-        int montoMovilizacion = Integer.parseInt(this.jTextField_movilizacionFijo.getText());
-        int montoChequeRestaurant = Integer.parseInt(this.jTextField_chequeRestaurant.getText());
-        int montoDesgasteHerramientas = Integer.parseInt(this.jTextField_desgasteHerramientas.getText());
-        int montoViaticos = Integer.parseInt(this.jTextField_viaticosFijo.getText());
+        int montoSueldoFijo = Integer.parseInt(this.jTextField_sueldoBaseVariableM1.getText());
+        int montoGratificacion = Integer.parseInt(this.jTextField_gratificacionVariableM1.getText());
+        int montoBonoImponible = Integer.parseInt(this.jTextField_bonoImponibleVariableM1.getText());
+        int montoColacion = Integer.parseInt(this.jTextField_colacionVariableM1.getText());
+        int montoMovilizacion = Integer.parseInt(this.jTextField_movilizacionVariableM1.getText());
+        int montoChequeRestaurant = Integer.parseInt(this.jTextField_chequeRestaurantVariableM1.getText());
+        int montoDesgasteHerramientas = Integer.parseInt(this.jTextField_desgasteHerramientasM1.getText());
+        int montoViaticos = Integer.parseInt(this.jTextField_viaticosVariablesM1.getText());
+        int montoComisiones = Integer.parseInt(this.jTextField_comisionesVariableM1.getText());
+        int montoSemanaCorrida = Integer.parseInt(this.jTextField_semanaCorridaVariableM1.getText());
         LocalDate fechaIngresoFijo = datePicker_fechaIngresoFijo.getDate();
         LocalDate fechaEgresoFijo = datePicker_fechaEgresoFijo.getDate();
         boolean esZonaExtrema = this.jCheckBox_zonaExtremaFijo.isEnabled();
@@ -427,10 +552,31 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         
         int diasTomadosVacaciones = Integer.parseInt(jTextPane_diasVacacionesTomados.getText());
         
-        DatosEntradaMes mesUno = new DatosEntradaMes(montoSueldoFijo, montoGratificacion, montoColacion, montoMovilizacion, montoBonoImponible, montoChequeRestaurant, montoDesgasteHerramientas, montoViaticos);
+        DatosEntradaMes mesUno = new DatosEntradaMes(montoSueldoFijo, montoGratificacion, montoColacion, montoMovilizacion, montoBonoImponible, montoChequeRestaurant, montoDesgasteHerramientas, montoViaticos, montoComisiones, montoSemanaCorrida);
         
-        DatosEntradaMes mesDos = new DatosEntradaMes();
-        DatosEntradaMes mesTres = new DatosEntradaMes();
+        int montoSueldoFijo2 = Integer.parseInt(this.jTextField_sueldoBaseVariableM2.getText());
+        int montoGratificacion2 = Integer.parseInt(this.jTextField_gratificacionVariableM2.getText());
+        int montoBonoImponible2 = Integer.parseInt(this.jTextField_bonoImponibleVariableM2.getText());
+        int montoColacion2 = Integer.parseInt(this.jTextField_colacionVariableM2.getText());
+        int montoMovilizacion2 = Integer.parseInt(this.jTextField_movilizacionVariableM2.getText());
+        int montoChequeRestaurant2 = Integer.parseInt(this.jTextField_chequeRestaurantVariableM2.getText());
+        int montoDesgasteHerramientas2 = Integer.parseInt(this.jTextField_desgasteHerramientasM2.getText());
+        int montoViaticos2 = Integer.parseInt(this.jTextField_viaticosVariablesM2.getText());
+        int montoComisiones2 = Integer.parseInt(this.jTextField_comisionesVariableM2.getText());
+        int montoSemanaCorrida2 = Integer.parseInt(this.jTextField_semanaCorridaVariableM2.getText());
+        DatosEntradaMes mesDos = new DatosEntradaMes(montoSueldoFijo2, montoGratificacion2, montoColacion2, montoMovilizacion2, montoBonoImponible2, montoChequeRestaurant2, montoDesgasteHerramientas2, montoViaticos2, montoComisiones2, montoSemanaCorrida2);
+        
+        int montoSueldoFijo3 = Integer.parseInt(this.jTextField_sueldoBaseVariableM3.getText());
+        int montoGratificacion3 = Integer.parseInt(this.jTextField_gratificacionVariableM3.getText());
+        int montoBonoImponible3 = Integer.parseInt(this.jTextField_bonoImponibleVariableM3.getText());
+        int montoColacion3 = Integer.parseInt(this.jTextField_colacionVariableM3.getText());
+        int montoMovilizacion3 = Integer.parseInt(this.jTextField_movilizacionVariableM3.getText());
+        int montoChequeRestaurant3 = Integer.parseInt(this.jTextField_chequeRestaurantVariableM3.getText());
+        int montoDesgasteHerramientas3 = Integer.parseInt(this.jTextField_desgasteHerramientasM3.getText());
+        int montoViaticos3 = Integer.parseInt(this.jTextField_viaticosVariablesM3.getText());
+        int montoComisiones3 = Integer.parseInt(this.jTextField_comisionesVariableM3.getText());
+        int montoSemanaCorrida3 = Integer.parseInt(this.jTextField_semanaCorridaVariableM3.getText());
+        DatosEntradaMes mesTres = new DatosEntradaMes(montoSueldoFijo3, montoGratificacion3, montoColacion3, montoMovilizacion3, montoBonoImponible3, montoChequeRestaurant3, montoDesgasteHerramientas3, montoViaticos3, montoComisiones3, montoSemanaCorrida3);
         
 
         FormularioFiniquito formularioFiniquitoSueldoVariable = 
@@ -496,6 +642,18 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenu_salirActionPerformed
 
+    private void jTextField_sueldoBaseVariableM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_sueldoBaseVariableM1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_sueldoBaseVariableM1ActionPerformed
+
+    private void jTextField_comisionesVariableM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_comisionesVariableM1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_comisionesVariableM1ActionPerformed
+
+    private void jTextField_semanaCorridaVariableM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_semanaCorridaVariableM1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_semanaCorridaVariableM1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -546,10 +704,13 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -562,14 +723,36 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField_bonoImponibleFijo;
-    private javax.swing.JTextField jTextField_chequeRestaurant;
-    private javax.swing.JTextField jTextField_colacionFijo;
-    private javax.swing.JTextField jTextField_desgasteHerramientas;
-    private javax.swing.JTextField jTextField_gratificacionFijo;
-    private javax.swing.JTextField jTextField_movilizacionFijo;
-    private javax.swing.JTextField jTextField_sueldoBaseFijo;
-    private javax.swing.JTextField jTextField_viaticosFijo;
+    private javax.swing.JTextField jTextField_bonoImponibleVariableM1;
+    private javax.swing.JTextField jTextField_bonoImponibleVariableM2;
+    private javax.swing.JTextField jTextField_bonoImponibleVariableM3;
+    private javax.swing.JTextField jTextField_chequeRestaurantVariableM1;
+    private javax.swing.JTextField jTextField_chequeRestaurantVariableM2;
+    private javax.swing.JTextField jTextField_chequeRestaurantVariableM3;
+    private javax.swing.JTextField jTextField_colacionVariableM1;
+    private javax.swing.JTextField jTextField_colacionVariableM2;
+    private javax.swing.JTextField jTextField_colacionVariableM3;
+    private javax.swing.JTextField jTextField_comisionesVariableM1;
+    private javax.swing.JTextField jTextField_comisionesVariableM2;
+    private javax.swing.JTextField jTextField_comisionesVariableM3;
+    private javax.swing.JTextField jTextField_desgasteHerramientasM1;
+    private javax.swing.JTextField jTextField_desgasteHerramientasM2;
+    private javax.swing.JTextField jTextField_desgasteHerramientasM3;
+    private javax.swing.JTextField jTextField_gratificacionVariableM1;
+    private javax.swing.JTextField jTextField_gratificacionVariableM2;
+    private javax.swing.JTextField jTextField_gratificacionVariableM3;
+    private javax.swing.JTextField jTextField_movilizacionVariableM1;
+    private javax.swing.JTextField jTextField_movilizacionVariableM2;
+    private javax.swing.JTextField jTextField_movilizacionVariableM3;
+    private javax.swing.JTextField jTextField_semanaCorridaVariableM1;
+    private javax.swing.JTextField jTextField_semanaCorridaVariableM2;
+    private javax.swing.JTextField jTextField_semanaCorridaVariableM3;
+    private javax.swing.JTextField jTextField_sueldoBaseVariableM1;
+    private javax.swing.JTextField jTextField_sueldoBaseVariableM2;
+    private javax.swing.JTextField jTextField_sueldoBaseVariableM3;
+    private javax.swing.JTextField jTextField_viaticosVariablesM1;
+    private javax.swing.JTextField jTextField_viaticosVariablesM2;
+    private javax.swing.JTextField jTextField_viaticosVariablesM3;
     private javax.swing.JTextPane jTextPane_diasVacacionesTomados;
     // End of variables declaration//GEN-END:variables
 }
