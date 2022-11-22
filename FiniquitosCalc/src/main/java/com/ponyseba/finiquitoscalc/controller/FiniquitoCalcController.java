@@ -26,31 +26,33 @@ public class FiniquitoCalcController {
     
 
     // todo: un usuario admin sólo debe ver los finiquitos creados por el mismo usuario admin.
-    public List<Finiquito> listarFiniquitos(){
+    public List<Finiquito> buscarFiniquitosPorIdUsuario(SesionUsuario sesionUsuario){
+        
+        int idUsuario = sesionUsuario.getUsuarioLogueado().getIdUsuario();
+        
         List<Finiquito> listaFiniquitos = new ArrayList<>();
         try{
 
             MySqlConnector connector = new MySqlConnector();
             Connection bdconnect = connector.createConnection();
 
-            String query = "SELECT f.id_finiquito, f.fecha_ini, f.fecha_fin, f.meses_trabajados_total, f.fecha_pago_finiquito, f.monto_salario_indemnizacion, f.monto_salario_vacaciones, f.dias_feriado_legal, f.indem_anios_servicio, f.indem_vacaciones, f.id_usuario, e.nombre  FROM Finiquito f JOIN Empresa e ON f.id_empresa=e.id_empresa";
+            String query = "SELECT id_finiquito, nombre_trabajador, meses_trabajados_total, dias_feriado_legal, indem_anios_servicio, indem_vacaciones, totalIndemnizacion FROM Finiquito WHERE id_usuario=?";
 
             PreparedStatement stmt = bdconnect.prepareStatement(query);
+            stmt.setInt(1, idUsuario);
 
             ResultSet rs = stmt.executeQuery();
        
             while(rs.next()){
                 Finiquito finiquito = new Finiquito();
-                finiquito.setFechaInicioTrabajo(rs.getDate("fecha_ini").toLocalDate());
-                finiquito.setFechaFinTrabajo(rs.getDate("fecha_fin").toLocalDate());
+                finiquito.setIdFiniquito(rs.getInt("id_finiquito"));
+                finiquito.setNombreTrabajador(rs.getString("nombre_trabajador"));
                 finiquito.setMesesTrabajadosTotal(rs.getString("meses_trabajados_total"));
-                finiquito.setFechaPagoFiniquito(rs.getDate("fecha_pago_finiquito").toLocalDate());
-                finiquito.setSalarioIndemnizacion(rs.getInt("monto_salario_indemnizacion"));
-                finiquito.setSalarioVacaciones(rs.getInt("monto_salario_vacaciones"));
                 finiquito.setFeriadoLegalHabil(rs.getInt("dias_feriado_legal"));
                 finiquito.setIndeminizacionAniosServicio(rs.getInt("indem_anios_servicio"));
                 finiquito.setIndemnizacionVacaciones(rs.getInt("indem_vacaciones"));
-                finiquito.setNombreEmpresa(rs.getString("nombre"));
+                finiquito.setTotalIndemnizacion(rs.getInt("totalIndemnizacion"));
+                
                 listaFiniquitos.add(finiquito);
             }
 
@@ -67,6 +69,43 @@ public class FiniquitoCalcController {
         }
 
         return listaFiniquitos;
+    }
+    
+    public Finiquito buscarFiniquitoPorIdFiniquito(SesionUsuario sesionUsuario, int idFiniquito){
+        
+        int idUsuario = sesionUsuario.getUsuarioLogueado().getIdUsuario();
+        Finiquito finiquito = new Finiquito();
+        try{
+            MySqlConnector connector = new MySqlConnector();
+            Connection bdconnect = connector.createConnection();
+            
+            String query = "SELECT * FROM Finiquito WHERE id_usuario = ? AND id_finiquito = ?";
+            PreparedStatement stmt = bdconnect.prepareStatement(query);
+            stmt.setInt(1,idUsuario);
+            stmt.setInt(2, idFiniquito);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                finiquito.setNombreTrabajador(rs.getString("nombre_trabajador"));
+                finiquito.setFechaInicioTrabajo(rs.getDate("fecha_ini").toLocalDate());
+                finiquito.setFechaFinTrabajo(rs.getDate("fecha_fin").toLocalDate());
+                finiquito.setFechaPagoFiniquito(rs.getDate("fecha_pago_finiquito").toLocalDate());
+                finiquito.setMesesTrabajadosTotal(rs.getString("meses_trabajados_total"));
+                finiquito.setSalarioIndemnizacion(rs.getInt("monto_salario_indemnizacion"));
+                finiquito.setSalarioVacaciones(rs.getInt("monto_salario_vacaciones"));
+                finiquito.setFeriadoLegalHabil(rs.getDouble("dias_feriado_legal"));
+                finiquito.setIndeminizacionAniosServicio(rs.getInt("indem_anios_servicio"));
+                finiquito.setIndemnizacionVacaciones(rs.getInt("indem_vacaciones"));
+                finiquito.setTotalIndemnizacion(rs.getInt("totalIndemnizacion"));
+            }
+            
+        }catch(SQLException e){
+            System.out.println("Error en búsqueda de finiquito: ");
+            System.out.println(e.getMessage());
+        }
+        
+        return finiquito;
     }
     
     public boolean crearFiniquito(Finiquito nuevoFiniquto){
@@ -167,11 +206,11 @@ public class FiniquitoCalcController {
 
                 Connection bdconnect = connector.createConnection();
 
-                String query = "DELETE * FROM Finiquito WHERE id_finiquito = ?";
+                String query = "DELETE FROM Finiquito WHERE id_finiquito = ?";
 
                 PreparedStatement stmt = bdconnect.prepareStatement(query);
                 stmt.setInt(1, idFiniquito);
-                stmt.executeQuery();
+                stmt.executeUpdate();
 
                 stmt.close();
                 bdconnect.close();

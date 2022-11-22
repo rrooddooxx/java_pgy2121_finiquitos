@@ -434,13 +434,19 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
-        boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito);
+        String nombreTrabajador = JOptionPane.showInputDialog(rootPane, "Ingrese nombre del trabajador: ");   
         
-        if(crearFiniquitoReturn) {
-            JOptionPane.showMessageDialog(rootPane, "Finiquito creado correctamente y guardado en el sistema!");
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Error en la creación del finiquito");
+        if(nombreTrabajador != null){
+            FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
+            
+            informeFiniquito.setNombreTrabajador(nombreTrabajador);
+            boolean crearFiniquitoReturn = finiquitoCalcController.crearFiniquito(informeFiniquito);
+        
+            if(crearFiniquitoReturn) {
+                JOptionPane.showMessageDialog(rootPane, "Finiquito creado correctamente y guardado en el sistema!");
+            }else {
+                JOptionPane.showMessageDialog(rootPane, "Error en la creación del finiquito");
+            }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
