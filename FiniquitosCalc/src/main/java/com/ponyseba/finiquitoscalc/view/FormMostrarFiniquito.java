@@ -4,8 +4,12 @@
  */
 package com.ponyseba.finiquitoscalc.view;
 
+import com.ponyseba.finiquitoscalc.controller.ExcelController;
 import com.ponyseba.finiquitoscalc.controller.FiniquitoCalcController;
+import java.io.IOException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Finiquito;
 import model.SesionUsuario;
 
@@ -14,6 +18,8 @@ import model.SesionUsuario;
  * @author ponyta
  */
 public class FormMostrarFiniquito extends javax.swing.JFrame {
+    
+    Finiquito finiquito;
     
     SesionUsuario sesionUsuario;
     /**
@@ -78,6 +84,7 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Ligconsolata", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Buscar Finiquito por ID");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -105,12 +112,15 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbtn_buscarFiniquito, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(jtxt_idFiniquito, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxt_idFiniquito, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(jbtn_buscarFiniquito, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,7 +135,7 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jpnl_finiquito.setBackground(new java.awt.Color(255, 255, 255));
+        jpnl_finiquito.setBackground(new java.awt.Color(204, 204, 204));
         jpnl_finiquito.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalle finiquito", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ligconsolata", 0, 14))); // NOI18N
 
         jLabel36.setFont(new java.awt.Font("Ligconsolata", 1, 18)); // NOI18N
@@ -225,10 +235,16 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         jtxt_totalConPreaviso.setFont(new java.awt.Font("Ligconsolata", 1, 30)); // NOI18N
         jtxt_totalConPreaviso.setBorder(null);
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
         jButton2.setFont(new java.awt.Font("Ligconsolata", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Exportar a Excel");
+        jButton2.setToolTipText("");
+        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel47.setFont(new java.awt.Font("Ligconsolata", 1, 18)); // NOI18N
         jLabel47.setText("Nombre trabajador:");
@@ -241,93 +257,59 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         jpnl_finiquitoLayout.setHorizontalGroup(
             jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel36))
-                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(jtxt_fechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                        .addContainerGap(57, Short.MAX_VALUE)
-                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                                .addComponent(jtxt_salarioAniosServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(169, 169, 169))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                                .addComponent(jtxt_indemnizacionAniosServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(186, 186, 186)))))
-                .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jtxt_salarioVacaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                                .addComponent(jtxt_fechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41))))
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtxt_indemnizacionVacaciones))))
-                .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jtxt_tiempoTrabajado, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(jtxt_feriadoLegal, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jtxt_fechaLimitePago, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43))
-            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(163, 163, 163)
-                .addComponent(jLabel40)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
-            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
-                .addGap(274, 274, 274)
-                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jtxt_nombreTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxt_nombreTrabajador))
+                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                                .addComponent(jLabel36)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jtxt_fechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jtxt_salarioVacaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel43)
+                                    .addComponent(jtxt_indemnizacionVacaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(133, 133, 133)
+                                .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel38)
+                                    .addComponent(jtxt_tiempoTrabajado, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxt_feriadoLegal, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxt_fechaLimitePago, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
+                                .addComponent(jLabel46)
+                                .addGap(106, 106, 106))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                        .addComponent(jLabel38)
-                        .addGap(95, 95, 95))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(439, 439, 439))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnl_finiquitoLayout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(jtxt_totalSinPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jtxt_totalConPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtxt_totalSinPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(300, 300, 300)
+                        .addComponent(jtxt_totalConPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(183, 183, 183))
+                    .addGroup(jpnl_finiquitoLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxt_fechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_salarioAniosServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_indemnizacionAniosServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(67, 67, 67))
         );
         jpnl_finiquitoLayout.setVerticalGroup(
             jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +318,7 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
                     .addComponent(jtxt_nombreTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(jLabel37)
@@ -372,17 +354,27 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                     .addComponent(jLabel46))
                 .addGap(18, 18, 18)
                 .addGroup(jpnl_finiquitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxt_totalConPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_totalSinPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                    .addComponent(jtxt_totalSinPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_totalConPreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         jMenu1.setText("Volver al Menú Principal");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -392,17 +384,16 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jpnl_finiquito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(354, 354, 354))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(273, 273, 273))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jpnl_finiquito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(344, 344, 344)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -411,7 +402,7 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jpnl_finiquito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -452,7 +443,7 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         FiniquitoCalcController finiquitoCalcController = new FiniquitoCalcController();
         int idFiniquito = Integer.parseInt(this.jtxt_idFiniquito.getText());
         
-        Finiquito finiquito = finiquitoCalcController.buscarFiniquitoPorIdFiniquito(sesionUsuario, idFiniquito);
+        finiquito = finiquitoCalcController.buscarFiniquitoPorIdFiniquito(sesionUsuario, idFiniquito);
         
         this.jtxt_nombreTrabajador.setText(finiquito.getNombreTrabajador());
         this.jtxt_fechaInicio.setText(String.valueOf(finiquito.getFechaInicioTrabajo()));
@@ -472,6 +463,29 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jbtn_buscarFiniquitoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ExcelController excelController = new ExcelController();
+        try {
+            excelController.generarFiniquitoXls(finiquito);
+        } catch (IOException ex) {
+            Logger.getLogger(FormMostrarFiniquito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        FormPanelCentral formPanelCentral = new FormPanelCentral();
+        formPanelCentral.setVisible(true);
+        formPanelCentral.setAlwaysOnTop(true);
+        dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -511,39 +525,11 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -552,51 +538,10 @@ public class FormMostrarFiniquito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField_fechaInicio;
-    private javax.swing.JTextField jTextField_fechaInicio1;
-    private javax.swing.JTextField jTextField_fechaInicio2;
-    private javax.swing.JTextField jTextField_fechaLimitePago;
-    private javax.swing.JTextField jTextField_fechaLimitePago1;
-    private javax.swing.JTextField jTextField_fechaLimitePago2;
-    private javax.swing.JTextField jTextField_fechaTermino;
-    private javax.swing.JTextField jTextField_fechaTermino1;
-    private javax.swing.JTextField jTextField_fechaTermino2;
-    private javax.swing.JTextField jTextField_feriadoLegal;
-    private javax.swing.JTextField jTextField_feriadoLegal1;
-    private javax.swing.JTextField jTextField_feriadoLegal2;
-    private javax.swing.JTextField jTextField_indemnizacionAniosServicio;
-    private javax.swing.JTextField jTextField_indemnizacionAniosServicio1;
-    private javax.swing.JTextField jTextField_indemnizacionAniosServicio2;
-    private javax.swing.JTextField jTextField_indemnizacionVacaciones;
-    private javax.swing.JTextField jTextField_indemnizacionVacaciones1;
-    private javax.swing.JTextField jTextField_indemnizacionVacaciones2;
-    private javax.swing.JTextField jTextField_salarioIndemnizacion;
-    private javax.swing.JTextField jTextField_salarioIndemnizacion1;
-    private javax.swing.JTextField jTextField_salarioIndemnizacion2;
-    private javax.swing.JTextField jTextField_salarioVacaciones;
-    private javax.swing.JTextField jTextField_salarioVacaciones1;
-    private javax.swing.JTextField jTextField_salarioVacaciones2;
-    private javax.swing.JTextField jTextField_tiempoTrabajado;
-    private javax.swing.JTextField jTextField_tiempoTrabajado1;
-    private javax.swing.JTextField jTextField_tiempoTrabajado2;
-    private javax.swing.JTextField jTextField_totalConPreAviso;
-    private javax.swing.JTextField jTextField_totalConPreAviso1;
-    private javax.swing.JTextField jTextField_totalConPreAviso2;
-    private javax.swing.JTextField jTextField_totalSinPreAviso;
-    private javax.swing.JTextField jTextField_totalSinPreAviso1;
-    private javax.swing.JTextField jTextField_totalSinPreAviso2;
     private javax.swing.JButton jbtn_buscarFiniquito;
     private javax.swing.JPanel jpnl_finiquito;
     private javax.swing.JTextField jtxt_fechaFin;

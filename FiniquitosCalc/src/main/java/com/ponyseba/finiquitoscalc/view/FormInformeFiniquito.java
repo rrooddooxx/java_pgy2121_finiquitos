@@ -4,7 +4,11 @@
  */
 package com.ponyseba.finiquitoscalc.view;
 
+import com.ponyseba.finiquitoscalc.controller.ExcelController;
 import com.ponyseba.finiquitoscalc.controller.FiniquitoCalcController;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Finiquito;
 import model.SesionUsuario;
@@ -41,7 +45,7 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
  
     
     private void assignValues(){
-        this.jTextField_fechaInicio.setText(informeFiniquito.getFechaFinTrabajo().toString());
+        this.jTextField_fechaInicio.setText(informeFiniquito.getFechaInicioTrabajo().toString());
         this.jTextField_fechaInicio.setEditable(false);
         this.jTextField_fechaTermino.setText(informeFiniquito.getFechaFinTrabajo().toString());
         this.jTextField_fechaTermino.setEditable(false);
@@ -308,6 +312,11 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         });
 
         jButton4.setText("Exportar a Excel");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -460,7 +469,7 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
-          FormPanelCentral formPanelCentral = new FormPanelCentral();
+         FormPanelCentral formPanelCentral = new FormPanelCentral();
         formPanelCentral.setVisible(true);
         formPanelCentral.setAlwaysOnTop(true);
         dispose();
@@ -470,6 +479,16 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        ExcelController excelController = new ExcelController();
+        try {
+            excelController.generarFiniquitoXls(informeFiniquito);
+        } catch (IOException ex) {
+            Logger.getLogger(FormInformeFiniquito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
