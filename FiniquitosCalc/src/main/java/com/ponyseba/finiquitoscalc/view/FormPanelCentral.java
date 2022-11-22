@@ -58,16 +58,26 @@ public class FormPanelCentral extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Administración"));
 
-        jButton3.setText("Listar Usuarias/os");
+        jButton3.setText("Ver Finiquitos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Borrar Usuarias/os");
+        jButton4.setText("Buscar Finiquito");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Crear Usuarias/os");
+        jButton5.setText("Borrar Finiquito");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,8 +197,25 @@ public class FormPanelCentral extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_vistaSueldoVariableActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        FormListarFiniquitos formListarFiniquitos = new FormListarFiniquitos(sesionUsuario);
+        formListarFiniquitos.setVisible(true);
+        formListarFiniquitos.setAlwaysOnTop(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        FormMostrarFiniquito formMostrarFiniquito = new FormMostrarFiniquito(sesionUsuario);
+        formMostrarFiniquito.setVisible(true);
+        formMostrarFiniquito.setAlwaysOnTop(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        FormEliminarFiniquito formEliminarFiniquito = new FormEliminarFiniquito(sesionUsuario);
+        formEliminarFiniquito.setVisible(true);
+        formEliminarFiniquito.setAlwaysOnTop(true);
+        dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
