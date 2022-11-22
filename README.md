@@ -12,6 +12,11 @@ _Duoc UC, Sede Viña Del Mar._
 ```
 Java 11 (OpenJDK)
 Maven
+mysql-connector-j
+lgooddatepicker
+jxls
+jxls-poi
+maven-assembly-plugin
 ```
 ## 🚀 Ejecución
 ```
