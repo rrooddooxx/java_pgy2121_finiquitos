@@ -45,7 +45,7 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
  
     
     private void assignValues(){
-        this.jTextField_fechaInicio.setText(informeFiniquito.getFechaFinTrabajo().toString());
+        this.jTextField_fechaInicio.setText(informeFiniquito.getFechaInicioTrabajo().toString());
         this.jTextField_fechaInicio.setEditable(false);
         this.jTextField_fechaTermino.setText(informeFiniquito.getFechaFinTrabajo().toString());
         this.jTextField_fechaTermino.setEditable(false);
@@ -469,7 +469,7 @@ public class FormInformeFiniquito extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
-          FormPanelCentral formPanelCentral = new FormPanelCentral();
+         FormPanelCentral formPanelCentral = new FormPanelCentral();
         formPanelCentral.setVisible(true);
         formPanelCentral.setAlwaysOnTop(true);
         dispose();

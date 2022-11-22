@@ -6,6 +6,7 @@ package com.ponyseba.finiquitoscalc.controller;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +46,7 @@ public class ExcelController {
         List<Finiquito> finiquitos = listaFiniquitos;
         List<String> headers = Arrays.asList("Nombre del Trabajador/a", "Tiempo Total Trabajado", "Feriado Legal Habil", "Indemnización por Años de Servicio", "Indemnización por Vacaciones", "Total Indemnizacion");
          SimpleExporter exporter = new SimpleExporter();
+ 
         exporter.gridExport(headers, finiquitos, "nombreTrabajador, mesesTrabajadosTotal, feriadoLegalHabil, indeminizacionAniosServicio, indemnizacionVacaciones, totalIndemnizacion", os1);
 
 //        // now let's show how to register custom template
