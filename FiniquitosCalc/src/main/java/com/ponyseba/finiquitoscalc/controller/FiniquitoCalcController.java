@@ -14,9 +14,7 @@ import com.ponyseba.finiquitoscalc.db.MySqlConnector;
 import static java.time.temporal.ChronoUnit.DAYS;
 import static java.time.temporal.ChronoUnit.MONTHS;
 import static java.time.temporal.ChronoUnit.YEARS;
-import model.Empresa;
 import model.Finiquito;
-import model.FormularioFiniquito;
 
 /**
  *

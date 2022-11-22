@@ -20,11 +20,23 @@ public class FormularioFiniquito {
     private DatosEntradaMes mesDos;
     private DatosEntradaMes mesTres;
     private int diasTomadosVacaciones = 0;
+    boolean salarioFijo;
+
+    public boolean isSalarioFijo() {
+        return salarioFijo;
+    }
+
+    public void setSalarioFijo(boolean salarioFijo) {
+        this.salarioFijo = salarioFijo;
+    }
+    
+    
 
     public FormularioFiniquito() {
     }
 
-    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int diasTomadosVacaciones, String artCausalFinContrato, DatosEntradaMes mesUno, DatosEntradaMes mesDos, DatosEntradaMes mesTres) {
+
+    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int diasTomadosVacaciones, String artCausalFinContrato, DatosEntradaMes mesUno, DatosEntradaMes mesDos, DatosEntradaMes mesTres, boolean salarioFijo) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
         this.artCausalFinContrato = artCausalFinContrato;
@@ -32,13 +44,15 @@ public class FormularioFiniquito {
         this.mesDos = mesDos;
         this.mesTres = mesTres;
         this.diasTomadosVacaciones = diasTomadosVacaciones;
+        this.salarioFijo = salarioFijo;
     }
     
-    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int diasTomadosVacaciones, String artCausalFinContrato, DatosEntradaMes mesUno) {
+    public FormularioFiniquito(LocalDate fechaInicioTrabajo, LocalDate fechaFinTrabajo, int diasTomadosVacaciones, String artCausalFinContrato, DatosEntradaMes mesUno, boolean salarioFijo) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
         this.fechaFinTrabajo = fechaFinTrabajo;
         this.artCausalFinContrato = artCausalFinContrato;
         this.mesUno = mesUno;
+        this.salarioFijo = salarioFijo;
         this.diasTomadosVacaciones = diasTomadosVacaciones;
     }
 

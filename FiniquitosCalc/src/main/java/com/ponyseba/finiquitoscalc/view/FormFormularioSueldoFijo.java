@@ -405,7 +405,9 @@ public class FormFormularioSueldoFijo extends javax.swing.JFrame {
         int diasTomadosVacaciones = Integer.parseInt(jTextPane_diasVacacionesTomados.getText());
         
         DatosEntradaMes mesUno = new DatosEntradaMes(montoSueldoFijo, montoGratificacion, montoColacion, montoMovilizacion, montoBonoImponible, montoChequeRestaurant, montoDesgasteHerramientas, montoViaticos);
-        FormularioFiniquito formularioFiniquitoSueldoFijo = new FormularioFiniquito(fechaIngresoFijo, fechaEgresoFijo, diasTomadosVacaciones, artCausalDespido, mesUno);
+
+        FormularioFiniquito formularioFiniquitoSueldoFijo = new FormularioFiniquito(fechaIngresoFijo, fechaEgresoFijo, diasTomadosVacaciones, artCausalDespido, mesUno, true);
+
         
         System.out.println(formularioFiniquitoSueldoFijo.toString());
     }//GEN-LAST:event_jButton_calcularFiniquitoSalarioFijo1ActionPerformed

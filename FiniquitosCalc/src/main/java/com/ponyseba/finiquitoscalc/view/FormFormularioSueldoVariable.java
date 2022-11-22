@@ -308,7 +308,10 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Calcular Finiquito Salario Variable");
+
+        jMenuItem2.setText("Calcular Finiquito Salario Fijo");
+
+
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -415,10 +418,13 @@ public class FormFormularioSueldoVariable extends javax.swing.JFrame {
         int diasTomadosVacaciones = Integer.parseInt(jTextPane_diasVacacionesTomados.getText());
         
         DatosEntradaMes mesUno = new DatosEntradaMes(montoSueldoFijo, montoGratificacion, montoColacion, montoMovilizacion, montoBonoImponible, montoChequeRestaurant, montoDesgasteHerramientas, montoViaticos);
-        FormularioFiniquito formularioFiniquitoSueldoFijo = new FormularioFiniquito(fechaIngresoFijo, fechaEgresoFijo, diasTomadosVacaciones, artCausalDespido, mesUno);
+
+        FormularioFiniquito formularioFiniquitoSueldoVariable = new FormularioFiniquito(fechaIngresoFijo, fechaEgresoFijo, diasTomadosVacaciones, artCausalDespido, mesUno, false);
         
-        System.out.println(formularioFiniquitoSueldoFijo.toString());
-    }//GEN-LAST:event_jButton_calcularFiniquitoSalarioFijo1ActionPerformed
+        System.out.println(formularioFiniquitoSueldoVariable.toString());
+
+    }
+    //GEN-LAST:event_jButton_calcularFiniquitoSalarioFijo1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
