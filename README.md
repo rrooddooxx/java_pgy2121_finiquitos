@@ -1,6 +1,6 @@
 # Aplicación generadora de Finiquitos Laborales (Chile)
 
-### 🛠️ Desarrollada por J.Valdés [(@ponytakxn)](https://github.com/ponytakxn) y S.Kravetz [(@wwiiddeeweb)](https://github.com/wwiiddeeweb)
+### 🛠️ Desarrollada por J.Valdés [(@ponytakxn)](https://github.com/ponytakxn) y S.Kravetz [(@rrooddooxx)](https://github.com/rrooddooxx)
 
 > Aplicación calculadora de finiquitos, en base al código del trabajo vigente en Chile al año 2022.
 > Incluye persistencia de datos en base de datos MySQL para guardar los finiquitos generados.
